@@ -1,0 +1,36 @@
+/* body fixes for fixed navbars */
+body {
+  padding-top: 116px;
+  padding-bottom: 70px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    padding-top: 116px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  body {
+    padding-top: 67px;
+  }
+}
+
+@media (max-width: 425px) {
+  body {
+    padding-top: 122px;
+  }
+}
+
+/* import variables */
+@import 'variables';
+
+/* import directives */
+@import 'directives/appointment-form';
+@import 'directives/footer-banner';
+@import 'directives/footer-nav-bar';
+@import 'directives/header-nav-bar';
+@import 'directives/loader-all-page';
+@import 'directives/loader-body-page';
+@import 'directives/page-header';
+@import 'directives/page-title-description';

@@ -1,0 +1,62 @@
+appointment-form {
+	
+	/* form submission overlay */
+	div#appointmentCompleteFlash {
+		text-align: center;
+		text-transform: none;
+	  position: absolute;
+	  display: block;
+		white-space: pre-wrap;
+	  z-index: 10;
+	  opacity: 1;
+	  @include full-div;
+
+		p {
+		  @include center-position-div;
+		}
+	}
+
+	form#bookingForm {
+		/* error messages */
+		div.bg-danger {
+			font-size: smaller;
+			text-transform: none;
+			padding: 3px;
+			margin-bottom: 10px;
+			
+			p {
+				margin-bottom: 0;
+			}
+		}
+
+		/* inputs */
+		div.form-group {
+			width: 100%;
+			margin-bottom: 15px;
+			
+			input,
+			select {
+				padding: 3px 6px;
+				height: 28px;
+				width: 100%;
+			}
+			
+		}
+		
+		label,
+		input,
+		select,
+		button {
+			font-size: smaller;
+			border-radius: 0;
+		}
+
+		/* buttons */
+		button.btn-primary {
+			background-color: $primary-color;
+			border-color: $primary-color;
+		}
+	}
+}
+
+

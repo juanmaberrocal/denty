@@ -1,0 +1,37 @@
+page-header {
+	div.page-header {
+	  /* min-height: 250px; */
+	  margin-top: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+		@include full-bg-image('section');
+
+		.page-header-image {
+			width: 10000px;
+
+			img {
+				min-height: 250px;
+				width: 100%;
+			}
+
+			/* shrink on mobile */
+			@media (max-width: 768px) {
+				width: 100%;
+				display: block;
+
+				img {
+					min-height: 150px;
+				}
+			}
+		}
+
+		.page-header-body {
+			text-align: center;
+			width: 5000px;
+
+			h3.media-heading {
+				font-size: 36px;
+			}
+		}
+	}
+}

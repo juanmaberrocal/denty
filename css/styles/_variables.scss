@@ -1,0 +1,35 @@
+/* colors */
+$primary-color: #5DBCD2;
+$dark-text: #777;
+
+/* backgrounds */
+$office-bg: url("/img/dentyBG.jpg");
+$section-bg: url("/img/sectionBG.jpg");
+
+/* mixins */
+@mixin full-bg-image($image_type) {
+	@if $image_type == "office" {
+		background-image: $office-bg;
+	} @else if $image_type == 'section' {
+		background-image: $section-bg;
+	}
+	background-position: center center;
+  background-size: cover;
+}
+
+@mixin full-div {
+	height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@mixin center-position-div {
+	position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}

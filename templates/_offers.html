@@ -1,0 +1,32 @@
+<div id="dentyOffers" ng-show="offersLoaded">
+	<!-- header -->
+	<page-header ng-if="has_header" id="offersHeader" title="{{$root.configs.offers_override || 'Offers'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+
+	<!-- title & description -->
+	<page-title-description ng-if="(has_title || has_description)" id="offersTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>
+
+	<!-- body -->
+	<div ng-if="offers.length > 0" id="offersBody" class="container page-body">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+				
+				<!-- offer -->
+				<div ng-repeat="offer in offers" class="media">
+					<div id="offerImage" class="media-left">
+				    <img class="media-object img-responsive" ng-src="{{ (offer.image_source | trustResource) || 'img/' + $root.configs.domain + '/offer_' + $index + '.jpeg' }}" alt="{{offer.image_name}}"> 
+				  </div>
+				  <div id="offerBody" class="media-body media-middle">
+				    <h3 class="media-heading">{{offer.header}}</h3>
+				    <div ng-if="offer.description" ng-bind-html="offer.description | trustHtml" class="media-description"></div>
+				    <!-- <div ng-if="offer.price">
+					    <span class="currency-symbol">$</span><span class="currency-amount">{{offer.price | currency:"":0}}</span>
+					    <br/>
+				    </div> -->
+				    <a ng-if="$root.configs.can_book_online" ui-sref="denty.offers">Book Now</a>
+				  </div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

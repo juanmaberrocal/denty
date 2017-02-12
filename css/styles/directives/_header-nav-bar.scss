@@ -1,0 +1,135 @@
+header-nav-bar {
+	
+	nav.navbar-fixed-top {
+		padding: 15px 0 0 0;
+		margin-bottom: 0;
+		text-transform: uppercase;
+		background-color: #FFF;
+		border-color: transparent;
+		
+		/* logo */
+		div.navbar-header {
+			a.navbar-brand {
+				padding: 0;
+				
+				/* image */
+				@media (min-width: 768px) {
+					img {
+						height: 100px;
+						width: auto;
+					}	
+				}
+				/* shrink on mobile */
+				@media (max-width: 768px) {
+					img {
+						height: 55px;
+						width: auto;
+						margin: auto;
+					}	
+				}
+			}
+		}
+
+		/* social links */
+		div#nav-social-buttons {
+			li {
+				a {
+					&:hover {
+						color: $dark-text;
+					}
+				}
+			}
+		}
+
+		/* booking */
+		ul.navbar-nav {
+			margin-bottom: 0;
+			
+			a#nav-booking-button {
+				color: #FFF;
+				background-color: $primary-color;
+				text-align: center;
+				padding: 10px 25px;
+				margin: 5px 0;
+				
+				/* booking dropdown */
+				+ ul.dropdown-menu {
+					position: absolute;
+					border: 1px solid $primary-color;
+					background-color: #FFF;
+					width: 100%;
+					padding: 10px;
+					border-radius: 0;
+				}
+				/* fix position on non-mobile */
+				@media (min-width: 768px) {
+					+ ul.dropdown-menu {
+						margin-top: -5px;
+					}
+				}
+			}
+			/* fix booking padding on mobile */
+			@media (max-width: 768px) {
+				a#nav-booking-button {
+					padding-top: 6px;
+					padding-bottom: 6px; 
+				}
+			}
+		}
+
+
+		/* navigation toggle */
+		/* button */
+		button.navbar-toggle {
+			border: 0;
+			margin: 8px -10px 0 0;
+			background-color: transparent !important;
+			
+			span.icon-bar {
+				background-color: $primary-color !important;
+				height: 5px;
+			}
+		}
+
+
+		/* navigation links */
+		div#navigation-header-links {
+			ul.navbar-nav {
+				li {
+					a {
+						&:hover {
+							color: $primary-color;
+						}
+					}
+
+					&.active {
+						a {
+							color: $primary-color;
+							background-color: transparent;
+						}
+					}
+				}
+			} 
+
+			/* dropdown */
+			&.navbar-collapse {
+				border-color: transparent;
+			}
+		} 
+	}
+
+	/* special handle for portrait mobile */
+	@media (max-width: 425px) {
+		nav.navbar-fixed-top div#navbar-logo {
+			width: 100%;
+		}
+
+		nav.navbar-fixed-top div.navbar-header a.navbar-brand {
+			float: none;
+		}	
+
+		nav.navbar-fixed-top div#navbar-top-row {
+			width: 83.333%;
+		}
+	}
+}

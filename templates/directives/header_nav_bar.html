@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="row">
+    
+      <!-- logo -->
+      <div id="navbar-logo" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="navbar-header">
+          <a class="navbar-brand" ui-sref="denty.home">
+            <img alt="{{$root.configs.name}}" ng-src="{{ ($root.configs.logo_source | trustResource) ? $root.configs.logo_source : 'img/' + $root.configs.domain + '/logo.png' }}">
+          </a>
+        </div>
+      </div>
+
+      <!-- nav top row -->
+      <div id="navbar-top-row" class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+        <div class="row">
+          <!-- social (invisible mobile) -->
+          <div ng-if="$root.configs.has_social" id="nav-social-buttons" ng-class="{ 'col-md-6': $root.configs.can_book_online, 'col-lg-8': $root.configs.can_book_online, 'col-md-12': !$root.configs.can_book_online, 'col-lg-12': !$root.configs.can_book_online }" class="hidden-xs hidden-sm">
+            <ul class="nav navbar-nav pull-right">
+              <li ng-if="$root.configs.socials.facebook"><a ng-href="{{$root.configs.socials.facebook | trustUrl}}"><i class="fa fa-2x fa-facebook"></i></a></li>
+              <li ng-if="$root.configs.socials.twitter"><a ng-href="{{$root.configs.socials.twitter | trustUrl}}"><i class="fa fa-2x fa-twitter"></i></a></li>
+              <li ng-if="$root.configs.socials.google_plus"><a ng-href="{{$root.configs.socials.google_plus | trustUrl}}"><i class="fa fa-2x fa-google-plus"></i></a></li>
+              <li ng-if="$root.configs.socials.instagram"><a ng-href="{{$root.configs.socials.instagram | trustUrl}}"><i class="fa fa-2x fa-instagram"></i></a></li>
+            </ul>
+          </div>
+
+          <!-- booking -->
+          <div ng-if="$root.configs.can_book_online" ng-class="{ 'col-md-6': $root.configs.has_social, 'col-lg-4': $root.configs.has_social, 'col-md-12': !$root.configs.has_social, 'col-lg-12': !$root.configs.has_social }" class="col-xs-12 col-sm-12">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" id="nav-booking-button" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Book an Appointment</a>
+                <ul class="dropdown-menu">
+                  <!-- form -->
+                  <appointment-form></appointment-form>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- nav button toggle (visible mobile) -->
+      <div class="col-xs-2 visible-xs">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-header-links" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- nav bottom row -->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pull-right">
+        <div id="navigation-header-links" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-if="$root.configs.has_about" ui-sref-active="active"><a ui-sref="denty.about">{{ $root.configs.about_override || 'About' }}</a></li>
+            <li ng-if="$root.configs.has_services" ui-sref-active="active"><a ui-sref="denty.services">{{ $root.configs.services_override || 'Services' }}</a></li>
+            <li ng-if="$root.configs.has_testimonials" ui-sref-active="active"><a ui-sref="denty.testimonials">{{ $root.configs.testimonials_override || 'Testimonials' }}</a></li>
+            <li ng-if="$root.configs.has_gallery" ui-sref-active="active"><a ui-sref="denty.gallery">{{ $root.configs.gallery_override || 'Gallery' }}</a></li>
+            <li ng-if="$root.configs.has_offers" ui-sref-active="active"><a ui-sref="denty.offers">{{ $root.configs.offers_override || 'Offers' }}</a></li>
+            <li ng-if="$root.configs.has_rewards" ui-sref-active="active"><a ui-sref="denty.rewards">{{ $root.configs.rewards_override || 'Rewards' }}</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>

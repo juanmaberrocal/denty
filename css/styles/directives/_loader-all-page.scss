@@ -1,0 +1,12 @@
+loader-all-page {
+	text-align: center;
+  position: fixed;
+  display: block;
+  z-index: 9999;
+  @include full-div;
+  @include full-bg-image('office');
+  
+  div {
+    @include center-position-div;
+  }
+}

@@ -1,0 +1,35 @@
+#====================#
+# ignore directories #
+#====================#
+# ignore sass compiler cache
+/.sass-cache
+
+# ignore compiled scss
+/css/source
+
+# ignore seed files for offices
+/img/lifesmiledental
+/db/seeds
+
+# ignore installed node modules
+/node_modules
+
+#==============#
+# ignore files #
+#==============#
+# ignore master css
+/css/denty-app.css
+/css/denty-app.min.css
+
+# ignore master js
+/js/dentyApp.js
+/js/dentyApp.min.js
+
+# ignore local iis configs
+web.config
+
+#=========================#
+# ignore compressed files #
+#=========================#
+# ignore zipped favicons
+*.zip

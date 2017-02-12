@@ -1,0 +1,19 @@
+<div id="dentyGallery" ng-show="galleryLoaded">
+	<!-- header -->
+	<page-header ng-if="has_header" id="galleryHeader" title="{{$root.configs.gallery_override || 'Gallery'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+
+	<!-- title & description -->
+	<page-title-description ng-if="(has_title || has_description)" id="galleryTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>
+
+	<!-- body -->
+	<div ng-if="gallery_images.length > 0" id="galleryBody" class="container-fluid page-body">
+		<div class="row">
+			
+			<!-- thumb -->
+			<div ng-repeat="image in gallery_images" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<img class="img-thumbnail img-responsive" ng-src="{{ (image.image_source | trustResource) || 'img/' + $root.configs.domain + '/gallery_' + $index + '.jpeg' }}" alt="{{image.image_name}}"> 
+			</div>
+
+		</div>
+	</div>
+</div>

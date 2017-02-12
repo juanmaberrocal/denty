@@ -1,0 +1,59 @@
+<!-- loader -->
+<loader-body-page ng-show="form.$submitted && form.$valid"></loader-body-page>
+
+<!-- success -->
+<div ng-class="{'bg-success': (completeStatus == 'success'), 'bg-warning': (completeStatus == 'warning')}" class="fade" id="appointmentCompleteFlash" ng-show="formComplete">
+  <p ng-class="{'text-success': (completeStatus == 'success'), 'text-warning': (completeStatus == 'warning')}">{{completeMsg}}</p>
+</div>
+
+<!-- form -->
+<form novalidate role="form" class="form-inline" id="bookingForm" name="form" ng-submit="submit()">
+  <!-- error message -->
+  <div class="bg-danger" ng-show="!!errorMsg">
+    <p class="text-danger">{{errorMsg}}</p>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-success': form.name.$touched && form.name.$valid, 'has-error': form.name.$touched && form.name.$invalid }">
+    <label class="sr-only" for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required ng-model="model.name">
+  </div>
+  <div class="row">
+    <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <span class="help-text">Preferred Date & Time</span>
+    </div> -->
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="form-group" ng-class="{ 'has-success': form.date.$touched && form.date.$valid, 'has-error': form.date.$touched && form.date.$invalid }">
+        <label class="sr-only" for="date">Date</label>
+        <input type="date" class="form-control" id="date" name="date" placeholder="Date" required ng-model="model.date">
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="form-group" ng-class="{ 'has-success': form.time.$touched && form.time.$valid, 'has-error': form.time.$touched && form.time.$invalid }">
+        <label class="sr-only" for="time">Time</label>
+        <input type="time" class="form-control" id="time" name="time" placeholder="Time" required ng-model="model.time">
+      </div>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{ 'has-success': form.treatment.$touched && form.treatment.$valid, 'has-error': form.treatment.$touched && form.treatment.$invalid }">
+    <label class="sr-only" for="treatment">Treatment</label>
+    <select class="form-control" id="treatment" name="treatment" required ng-model="model.treatment" ng-options="treatment.label disable when treatment.disabled for treatment in treatments track by treatment.value">
+      <option disabled="true" selected="true" value="">Treatment</option>
+    </select>
+  </div>
+  <div class="form-group" ng-class="{ 'has-success': form.phone.$touched && form.phone.$valid, 'has-error': form.phone.$touched && form.phone.$invalid }">
+    <label class="sr-only" for="phone">Phone Number</label>
+    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number" required ng-model="model.phone">
+  </div>
+  <div class="form-group" ng-class="{ 'has-success': form.email.$touched && form.email.$valid, 'has-error': form.email.$touched && form.email.$invalid }">
+    <label class="sr-only" for="email">Email</label>
+    <input type="email" class="form-control" id="Email" name="email" placeholder="Email" required ng-model="model.email">
+  </div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button type="button" class="btn btn-block" id="cancel-appointment">Cancel</button>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <button type="submit" class="btn btn-block btn-primary">Book</button>
+    </div>
+  </div>
+</form>

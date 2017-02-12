@@ -1,0 +1,16 @@
+.fade.ng-hide {
+  transition: 0.85s linear all;
+  opacity: 0;
+}
+
+/* todo: */
+.dropdown-fade.dropdown .dropdown-menu {
+	opacity: 0;
+	height: 100px;
+}
+
+.dropdown-fade.dropdown.open .dropdown-menu {
+	transition: 0.5s linear all;
+	opacity: 1;
+	height: auto;
+}
