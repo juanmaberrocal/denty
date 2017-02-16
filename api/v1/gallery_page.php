@@ -29,7 +29,7 @@ $galleryImage = new galleryImage();
 $galleryImageSql = $galleryImage->getFromGalleryPage($result['id'], $result['image_limit']);
 // query gallery images and insert into new result key 'gallery_images'
 $galleryImageResult = $mySql->query($galleryImageSql);
-$result['gallery_images'] = array_reverse($galleryImageResult ?? array());
+$result['gallery_images'] = array_reverse($galleryImageResult ?: array());
 
 // return json object with queried data
 $jsonResponse->successResponse($result);

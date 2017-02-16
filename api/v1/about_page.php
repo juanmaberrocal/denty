@@ -29,7 +29,7 @@ $about = new about();
 $aboutSql = $about->getFromAboutPage($result['id'], $result['about_limit']);
 // query about and insert into new result key 'abouts'
 $aboutResult = $mySql->query($aboutSql);
-$result['abouts'] = array_reverse($aboutResult ?? array());
+$result['abouts'] = array_reverse($aboutResult ?: array());
 
 // return json object with queried data
 $jsonResponse->successResponse($result);

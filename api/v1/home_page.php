@@ -53,7 +53,7 @@ if ($result['has_highlights']){
 	$highlightSql = $highlight->getFromHomePage($result['id'], $result['highlight_limit']);
 	// query highlights and insert into new result key 'highlights'
 	$highlightResult = $mySql->query($highlightSql);
-	$result['highlights'] = array_reverse(highlightResult ?: array());
+	$result['highlights'] = array_reverse($highlightResult ?: array());
 }
 
 // If home page has promotions
