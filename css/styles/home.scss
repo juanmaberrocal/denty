@@ -26,6 +26,12 @@ div#dentyHome {
 	/* highlights container */
 	div#homeHighlights {
 		padding: 30px 15px;
+
+		div.highlight-image {
+			img {
+				margin: auto;
+			}
+		}
 		
 		div.highlight-body {
 			text-align: center;
