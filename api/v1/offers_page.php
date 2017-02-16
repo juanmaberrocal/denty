@@ -29,7 +29,7 @@ $offer = new offer();
 $offerSql = $offer->getFromOfferPage($result['id'], $result['offer_limit']);
 // query offer and insert into new result key 'offers'
 $offerResult = $mySql->query($offerSql);
-$result['offers'] = array_reverse($offerResult ?? array());
+$result['offers'] = array_reverse($offerResult ?: array());
 
 // return json object with queried data
 $jsonResponse->successResponse($result);
