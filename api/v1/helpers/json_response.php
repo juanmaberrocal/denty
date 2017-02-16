@@ -17,16 +17,16 @@ class jsonResponse {
 	response builders
 	===============*/
 	function successResponse($data, $response_code=NULL, $response_text=NULL){
-		$response_code = $response_code ?? 200;
-		$response_text = $response_text ?? self::$response_codes[$response_code];
+		$response_code = $response_code ?: 200;
+		$response_text = $response_text ?: self::$response_codes[$response_code];
 
 		$this->buildResponseHeader($response_code, $response_text);
 		echo json_encode($data);
 	}
 
 	function errorResponse($data, $response_code=NULL, $response_text=NULL){
-		$response_code = $response_code ?? 500;
-		$response_text = $response_text ?? self::$response_codes[$response_code];
+		$response_code = $response_code ?: 500;
+		$response_text = $response_text ?: self::$response_codes[$response_code];
 
 		$this->buildResponseHeader($response_code, $response_text);
 		die(json_encode($data));

@@ -31,7 +31,7 @@ if ($result['has_carousel']){
 	$carouselSql = $carousel->getFromHomePage($result['id'], $result['carousel_limit']);
 	// query carousel images and insert into new result key 'carousel'
 	$carouselResult = $mySql->query($carouselSql);
-	$result['carousel'] = array_reverse($carouselResult ?? array());
+	$result['carousel'] = array_reverse($carouselResult ?: array());
 }
 
 // If home page has description
@@ -42,7 +42,7 @@ if ($result['has_description']){
 	$descriptionSql = $description->getFromHomePage($result['id'], $result['description_limit']);
 	// query description text and insert into new result key 'description'
 	$descriptionResult = $mySql->query($descriptionSql);
-	$result['descriptions'] = array_reverse($descriptionResult ?? array());
+	$result['descriptions'] = array_reverse($descriptionResult ?: array());
 }
 
 // If home page has highlights
@@ -53,7 +53,7 @@ if ($result['has_highlights']){
 	$highlightSql = $highlight->getFromHomePage($result['id'], $result['highlight_limit']);
 	// query highlights and insert into new result key 'highlights'
 	$highlightResult = $mySql->query($highlightSql);
-	$result['highlights'] = array_reverse(highlightResult ?? array());
+	$result['highlights'] = array_reverse(highlightResult ?: array());
 }
 
 // If home page has promotions
@@ -73,7 +73,7 @@ if ($result['has_promotions']){
 
 	// query promotions and insert into new result key 'promotions'
 	$promotionResult = $mySql->query($promotionSql);
-	$result['promotions'] = array_reverse($promotionResult ?? array());
+	$result['promotions'] = array_reverse($promotionResult ?: array());
 }
 
 // If home page has carousel
@@ -93,7 +93,7 @@ if ($result['has_thumbnails']){
 
 	// query thumbnails images and insert into new result key 'thumbnails'
 	$thumbnailResult = $mySql->query($thumbnailSql);
-	$result['thumbnails'] = array_reverse($thumbnailResult ?? array());
+	$result['thumbnails'] = array_reverse($thumbnailResult ?: array());
 }
 
 // return json object with queried data

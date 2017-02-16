@@ -34,7 +34,7 @@ if ($result['has_social']){
 	$socialSql = $socialLink->getFromOffice($domain);
 	// query links and insert into new result key 'socials'
 	$socialResult = $mySql->query($socialSql);
-	$result['socials'] = $socialResult[0] ?? array();
+	$result['socials'] = $socialResult[0] ?: array();
 }
 
 // return json object with queried data
