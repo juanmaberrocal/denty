@@ -327,3 +327,27 @@ CREATE TABLE offers (
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (offer_page_id) REFERENCES offer_pages(id)
 )
+
+/*----------
+Contact View
+----------*/
+CREATE TABLE contact_pages (
+	id INT NOT NULL AUTO_INCREMENT,
+	office_id INT(11) NOT NULL,
+	has_header BOOLEAN,
+	image_name VARCHAR(255),
+	image_source VARCHAR(255),
+	has_title BOOLEAN,
+	title VARCHAR(255),
+	has_description BOOLEAN,
+	description TEXT,
+	show_email BOOLEAN,
+	show_phone BOOLEAN,
+	show_hours BOOLEAN,
+	show_map BOOLEAN,
+	show_form BOOLEAN,
+	created_at DATETIME NOT NULL DEFAULT NOW(),
+	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+	PRIMARY KEY (id),
+	FOREIGN KEY (office_id) REFERENCES offices(id)
+)
