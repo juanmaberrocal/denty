@@ -58,7 +58,12 @@ angular.module("dentyApp", [
 	  	  	url: "/rewards",
 	  	  	templateUrl: "templates/_rewards.html",
 	  	  	controller: "dentyRewards"
-	  	  });
+	  	  })
+		  .state("denty.contact", { // contact
+			url: "/contact",
+			templateUrl: "templates/_contact.html",
+			controller: "dentyContact"
+		  });
 
 			// redirect home for wrong urls
   	  $urlRouterProvider.otherwise("/");
@@ -97,6 +102,9 @@ angular.module("dentyApp", [
 						break;
 					case "denty.rewards":
 						cannotVisit = !$rootScope.configs.has_rewards;
+						break;
+					case "denty.contact":
+						cannotVisit = !$rootScope.configs.has_contact;
 						break;
 					default:
 						// allow redirect

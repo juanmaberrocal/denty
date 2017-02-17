@@ -12,7 +12,9 @@ angular.module("dentyApp")
 					// 
 					loadAbout: loadAboutPage,
 					loadGallery: loadGalleryPage,
-					loadOffers: loadOffersPage
+					loadOffers: loadOffersPage,
+					//
+					loadContact: loadContactPage
 				};
 
 			// return factory
@@ -85,10 +87,10 @@ angular.module("dentyApp")
 
 			/*
 			@description: load "about" page data
-			@office: domain of offie being displayed
+			@office: domain of office being displayed
 			*/
 			function loadAboutPage(office, successCallback, errorCallback){
-				// prevent malicious queries if current office does not have a homepage configured
+				// prevent malicious queries if current office does not have a home page configured
 				if (!$rootScope.configs.has_about){
 					dentyDebugger.console(office, loadAboutPage, "error");
 				}
@@ -121,10 +123,10 @@ angular.module("dentyApp")
 
 			/*
 			@description: load "gallery" page data
-			@office: domain of offie being displayed
+			@office: domain of office being displayed
 			*/
 			function loadGalleryPage(office, successCallback, errorCallback){
-				// prevent malicious queries if current office does not have a homepage configured
+				// prevent malicious queries if current office does not have a gallery page configured
 				if (!$rootScope.configs.has_gallery){
 					dentyDebugger.console(office, loadGalleryPage, "error");
 				}
@@ -157,10 +159,10 @@ angular.module("dentyApp")
 
 			/*
 			@description: load "offers" page data
-			@office: domain of offie being displayed
+			@office: domain of office being displayed
 			*/
 			function loadOffersPage(office, successCallback, errorCallback){
-				// prevent malicious queries if current office does not have a homepage configured
+				// prevent malicious queries if current office does not have a offers page configured
 				if (!$rootScope.configs.has_offers){
 					dentyDebugger.console(office, loadOffersPage, "error");
 				}
@@ -186,6 +188,42 @@ angular.module("dentyApp")
 								// if no error callback is defined
 								// display errors in console
 								dentyDebugger.console(data, loadOffersPage, "error");
+							}
+						}
+					);
+			}
+
+			/*
+			@description: load "contact" page data
+			@office: domain of office being displayed
+			*/
+			function loadContactPage(office, successCallback, errorCallback){
+				// prevent malicious queries if current office does not have a contact page configured
+				if (!$rootScope.configs.has_contact){
+					dentyDebugger.console(office, loadContactPage, "error");
+				}
+
+				return $http
+					.get("/api/v1/contact_page.php",
+						{ params: {domain: office} }
+					)
+					.then(
+						function(data){ // success handler
+							if (successCallback){
+								successCallback(data);
+							} else {
+								// if no success callback is defined
+								// display success in console
+								dentyDebugger.console(data, loadContactPage, "info");
+							}
+						},
+						function(data){ // error handler
+							if (errorCallback){
+								errorCallback(data);
+							} else {
+								// if no error callback is defined
+								// display errors in console
+								dentyDebugger.console(data, loadContactPage, "error");
 							}
 						}
 					);
