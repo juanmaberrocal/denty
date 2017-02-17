@@ -50,6 +50,7 @@ CREATE TABLE social_links (
 	twitter VARCHAR(255),
 	instagram VARCHAR(255),
 	google_plus VARCHAR(255),
+	yelp VARCHAR(255),
 	created_at DATETIME NOT NULL DEFAULT NOW(),
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),

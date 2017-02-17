@@ -9,6 +9,7 @@ class socialLink {
 			'twitter', 
 			'instagram', 
 			'google_plus',
+			'yelp',
 			'created_at', 
 			'updated_at'
 		);
@@ -17,7 +18,8 @@ class socialLink {
 			'facebook', 
 			'twitter', 
 			'instagram', 
-			'google_plus' 
+			'google_plus',
+			'yelp'
 		);
 
 	/*===============================
