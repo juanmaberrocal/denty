@@ -3,13 +3,13 @@
     <div class="row">
       <!-- footer navs (always visible) -->
       <div id="navigation-footer-links" ng-class="{ 'col-xs-10': $root.configs.has_social, 'col-sm-10': $root.configs.has_social, 'col-md-8': $root.configs.contact_phone, 'col-lg-8': $root.configs.contact_phone, 'col-xs-12': !$root.configs.has_social, 'col-sm-12': !$root.configs.has_social, 'col-md-12': !$root.configs.contact_phone, 'col-lg-12': !$root.configs.contact_phone }">
-        <a href="#">Blog</a>
-        |
-        <a href="#">Map</a>
-        |
-        <a href="#">Contact Us</a>
-        |
-        <a href="#">Financing</a>
+        <a ng-if="$root.configs.has_blog" href="#">{{ $root.configs.blog_override || 'Blog' }}</a>
+	<span ng-if="$root.configs.has_blog && ($root.configs.has_map || $root.configs.has_contact || $root.configs.has_financing)">|</span>
+        <a ng-if="$root.configs.has_map" href="#">{{ $root.configs.map_override || 'Map' }}</a>
+        <span ng-if="$root.configs.has_map && ($root.configs.has_contact || $root.configs.has_financing)">|</span>
+        <a ng-if="$root.configs.has_contact" href="#">{{ $root.configs.contact_override || 'Contact Us' }}</a>
+	<span ng-if="$root.configs.has_contact && $root.configs.has_financing">|</span>
+        <a ng-if="$root.configs.has_financing" href="#">{{ $root.configs.financing_override || 'Financing' }}</a>
       </div>
 
       <!-- footer social (visible mobile) -->

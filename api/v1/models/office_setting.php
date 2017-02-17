@@ -20,7 +20,15 @@ class officeSetting {
 			'has_offers', 
 			'offers_override', 
 			'has_rewards', 
-			'rewards_override', 
+			'rewards_override',
+			'has_blog',
+			'blog_override',
+			'has_map',
+			'map_override',
+			'has_contact',
+			'map_override',
+			'has_financing',
+			'financing_override',
 			'created_at', 
 			'updated_at'
 		);
@@ -41,7 +49,15 @@ class officeSetting {
 			'has_offers', 
 			'offers_override', 
 			'has_rewards', 
-			'rewards_override', 
+			'rewards_override',
+			'has_blog',
+			'blog_override',
+			'has_map',
+			'map_override',
+			'has_contact',
+			'map_override',
+			'has_financing',
+			'financing_override',
 		);
 
 	/*===============================
