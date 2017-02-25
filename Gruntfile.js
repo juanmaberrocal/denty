@@ -29,7 +29,8 @@ module.exports = function(grunt){
 					separator: "\n"
 				},
 				// concat all files from source into master file in css
-				src: ["css/source/*.css"],
+				// ensure application defined first
+				src: ["css/source/animations.css", "css/source/typeface.css", "css/source/denty.css", "css/source/*.css"],
 				dest: "css/denty-app.css"
 			},
 			// concat js files

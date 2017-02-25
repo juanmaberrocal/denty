@@ -22,10 +22,14 @@ body {
   }
 }
 
-/* import variables */
+//=================
+// import variables
+//=================
 @import 'variables';
 
-/* import directives */
+//==================
+// import directives
+//==================
 @import 'directives/appointment-form';
 @import 'directives/footer-banner';
 @import 'directives/footer-nav-bar';

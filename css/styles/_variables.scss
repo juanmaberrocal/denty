@@ -1,12 +1,24 @@
-/* colors */
+//======
+// fonts
+//======
+$body-font: 'Open Sans', sans-serif;
+$header-font: 'Raleway', sans-serif;
+
+//=======
+// colors
+//=======
 $primary-color: #5DBCD2;
 $dark-text: #777;
 
-/* backgrounds */
+//============
+// backgrounds
+//============
 $office-bg: url("/img/dentyBG.jpg");
 $section-bg: url("/img/sectionBG.jpg");
 
-/* mixins */
+//=======
+// mixins
+//=======
 @mixin full-bg-image($image_type) {
 	@if $image_type == "office" {
 		background-image: $office-bg;
