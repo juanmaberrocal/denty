@@ -103,6 +103,10 @@ div#dentyHome {
 	div#homeThumbs {
 		margin: 30px auto;
 		padding: 30px 15px;
+
+		img.img-thumbnail {
+			margin-bottom: 15px;
+		}
 	}
 }
 
