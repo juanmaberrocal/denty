@@ -15,7 +15,7 @@ angular.module("dentyApp", [
 			$stateProvider
 				.state("denty", { // root
 					abstract: true,
-					template: '<loader-body-page ng-show="$root.loaderAllBodyDisplay"></loader-body-page><ui-view/>',
+					template: '<loader-body-page ng-show="$root.loaderBodyDisplay"/><error-body-page ng-show="$root.errorBodyDisplay"/><ui-view/>',
 					resolve: {
 						// ensure all office data has been loaded before accessing routes
 						office: function(officeConfigs){

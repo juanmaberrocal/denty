@@ -15,7 +15,8 @@ angular.module("dentyApp")
 			=========================*/
 			self.init = function(office){
 				// display loader until data is gathered
-				$rootScope.loaderAllBodyDisplay = true;
+				$rootScope.loaderBodyDisplay = true;
+				$rootScope.errorBodyDisplay = false;
 				$scope.aboutLoaded = false;
 
 				// load about configurations
@@ -32,11 +33,16 @@ angular.module("dentyApp")
 				
 				// display about page
 				$scope.aboutLoaded = true;
-				$rootScope.loaderAllBodyDisplay = false;
+				$rootScope.loaderBodyDisplay = false;
+				$rootScope.errorBodyDisplay = false;
 			}
 
 			function onLoadError(response){
 				dentyDebugger.console(response, onLoadError, "error");
+
+				// display error
+				$rootScope.loaderBodyDisplay = false;
+				$rootScope.errorBodyDisplay = true;
 			}
 
 			/**************************

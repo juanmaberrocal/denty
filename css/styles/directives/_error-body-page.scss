@@ -1,0 +1,12 @@
+error-body-page {
+  text-align: center;
+  position: absolute;
+  display: block;
+  z-index: 1020;
+  background: white;
+  @include full-div;
+  
+  div {
+    @include center-position-div;
+  }
+}
