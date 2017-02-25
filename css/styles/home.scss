@@ -60,9 +60,16 @@ div#dentyHome {
 			img {
 				width: 100%;
 			}
+
+			@media (max-width: 425px){
+				width: 100%;
+				display: block;
+				text-align:center;
+			}
 		} 
 
 		div#promotionBody {
+			padding: 15px 0;
 			text-align: center;
 
 			h3.media-heading {

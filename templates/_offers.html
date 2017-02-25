@@ -12,7 +12,7 @@
 				
 				<!-- offer -->
 				<div ng-repeat="offer in offers" class="media">
-					<div id="offerImage" class="media-left">
+					<div id="offerImage" class="media-left media-middle">
 				    <img class="media-object img-responsive" ng-src="{{ (offer.image_source | trustResource) || 'img/' + $root.configs.domain + '/offer_' + $index + '.jpeg' }}" alt="{{offer.image_name}}"> 
 				  </div>
 				  <div id="offerBody" class="media-body media-middle">

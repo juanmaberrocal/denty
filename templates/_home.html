@@ -35,7 +35,7 @@
 		<div class="row">
 			
 			<!-- highlight -->
-			<div ng-repeat="highlight in highlights" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+			<div ng-repeat="highlight in highlights" ng-class="{ 'col-xs-12': true, 'col-sm-12': highlights.length == 1, 'col-sm-6': highlights.length == 2, 'col-sm-4': highlights.length > 2, 'col-md-12': highlights.length == 1, 'col-md-6': highlights.length == 2, 'col-md-4': highlights.length > 2, 'col-lg-12': highlights.length == 1, 'col-lg-6': highlights.length == 2, 'col-lg-4': highlights.length > 2 }">
 				<div class="row">
 					<div class="highlight-image col-xs-4 col-sm-12 col-md-12 col-lg-12">
 						<img class="img-responsive" ng-src="{{ (highlight.image_source | trustResource) || 'img/' + $root.configs.domain + '/highlight_' + $index + '.jpeg' }}" alt="{{highlight.image_name}}">
@@ -59,7 +59,7 @@
 
 				<!-- promotion -->
 				<div ng-repeat="promotion in promotions" class="media">
-				  <div id="promotionImage" class="media-left">
+				  <div id="promotionImage" class="media-left media-middle">
 				    <img class="media-object img-responsive" ng-src="{{ (promotion.image_source | trustResource) || 'img/' + $root.configs.domain + '/' + (promotions_from_offers ? 'offer_' : 'promotion_') + $index + '.jpeg' }}" alt="{{promotion.image_name}}"> 
 				  </div>
 				  <div id="promotionBody" class="media-body media-middle">
