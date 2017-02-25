@@ -28,6 +28,17 @@ angular.module("dentyApp")
 			function onContactLoad(response){
 				dentyDebugger.console(response, onContactLoad, "info");
 
+				// check map has to be displayed and api is available
+				if (response.data.show_map && $rootScope.configs.google_api){
+					// build google map url
+					response.data.map_url = [
+						"https://www.google.com/maps/embed/v1/place?key=",
+						$rootScope.configs.google_api,
+						"&q=",
+						($rootScope.configs.contact_address.replace(/\s/g, "+"))
+					].join("");
+				}
+
 				// set contact configurations
 				angular.extend($scope, response.data);
 				

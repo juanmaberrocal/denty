@@ -9,7 +9,7 @@ $domain = $mySql->escapeString($_GET['domain']);
 // define contact page model and build query
 include_once('models/contact_page.php');
 $contactPage = new contactPage();
-$contactPageSql = $contactPage->getFromOffice($domain, 1, array(), array('id')); // pull about page id
+$contactPageSql = $contactPage->getFromOffice($domain);
 // query contact page configurations and set as results
 $result = $mySql->query($contactPageSql);
 $result = $result[0]; // configurations is first/only row

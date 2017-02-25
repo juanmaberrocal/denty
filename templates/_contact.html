@@ -6,24 +6,54 @@
 	<page-title-description ng-if="(has_title || has_description)" id="contactTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>
 
 	<!-- body -->
-	<div ng-if="abouts.length > 0" id="aboutBody" class="container page-body">
+	<div id="contactBody" class="container page-body">
 				
-		<!-- about -->
-		<div ng-repeat="about in abouts">
-			<div class="row">
-				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-10">
-					<div ng-if="about.title" class="page-header">
-					  <h1>{{about.title}}</h1>
-					</div>
-					<div class="row">
-						<div ng-bind-html="about.description | trustHtml" class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"></div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
-					<img class="img-responsive" ng-src="{{ (about.image_source | trustResource) || 'img/' + $root.configs.domain + '/about_' + $index + '.jpeg' }}" alt="{{about.image_name}}">
+		<!-- contact pannels -->
+		<div ng-if="show_email || show_phone || show_hours" class="row">
+			<!-- email -->
+			<div ng-if="show_email" ng-class="{ 'col-xs-12': true, 'col-sm-12': !show_hours && !show_phone, 'col-sm-6': show_hours || show_phone, 'col-sm-4': show_hours && show_phone, 'col-md-12': !show_hours && !show_phone, 'col-md-6': show_hours || show_phone, 'col-md-4': show_hours && show_phone, 'col-lg-12': !show_hours && !show_phone, 'col-lg-6': show_hours || show_phone, 'col-lg-4': show_hours && show_phone }">
+				<div class="panel panel-default contact-panel">
+				  <div class="panel-body">
+				  	<div class="contact-icon"><i class="fa fa-2x fa-inbox"></i></div>
+				  	<div class="contact-text">
+				  		<a ng-href="mailto:{{$root.configs.contact_email}}">{{$root.configs.contact_email}}</a>
+				  	</div>
+				  </div>
 				</div>
 			</div>
 
+			<!-- phone -->
+			<div ng-if="show_phone" ng-class="{ 'col-xs-12': true, 'col-sm-12': !show_email && !show_hours, 'col-sm-6': show_email || show_hours, 'col-sm-4': show_email && show_hours, 'col-md-12': !show_email && !show_hours, 'col-md-6': show_email || show_hours, 'col-md-4': show_email && show_hours, 'col-lg-12': !show_email && !show_hours, 'col-lg-6': show_email || show_hours, 'col-lg-4': show_email && show_hours }">
+				<div class="panel panel-default contact-panel">
+				  <div class="panel-body">
+				  	<div class="contact-icon"><i class="fa fa-2x fa-phone"></i></div>
+				  	<div class="contact-text">
+				  		<a ng-href="tel:{{$root.configs.contact_phone}}">{{$root.configs.contact_phone}}</a>
+				  	</div>
+				  </div>
+				</div>
+			</div>
+
+			<!-- hours -->
+			<div ng-if="show_hours" ng-class="{ 'col-xs-12': true, 'col-sm-12': !show_email && !show_phone, 'col-sm-6': show_email || show_phone, 'col-sm-4': show_email && show_phone, 'col-md-12': !show_email && !show_phone, 'col-md-6': show_email || show_phone, 'col-md-4': show_email && show_phone, 'col-lg-12': !show_email && !show_phone, 'col-lg-6': show_email || show_phone, 'col-lg-4': show_email && show_phone }">
+				<div class="panel panel-default contact-panel">
+				  <div class="panel-body">
+				  	<div class="contact-icon"><i class="fa fa-2x fa-clock-o"></i></div>
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<!-- google map -->
+		<div ng-if="map_url" class="row">
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe width="600" height="450" frameborder="0" style="border:0" ng-src="{{map_url | trustResource }}" allowfullscreen></iframe>	
+			</div>
+		</div>
+
+		<!-- contact form -->
+		<div ng-if="show_form" class="row">
+			<!-- todo -->
 		</div>
 
 	</div>

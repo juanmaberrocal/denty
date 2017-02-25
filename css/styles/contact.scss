@@ -1,0 +1,42 @@
+//=================
+// import variables
+//=================
+@import 'variables';
+
+div#dentyContact {
+
+	/* contact container */
+	div#contactBody {
+		div.contact-panel {
+			text-align: center;
+			border-radius: 0;
+
+			div.contact-icon {
+				font-size: 2em;
+
+				i.fa {
+					// border: 1px solid $dark-text;
+					// border-radius: 50%;
+					color: $dark-text;
+					padding: 15px;
+				}
+			}
+
+			div.contact-text {
+				a {
+					color: $dark-text;
+					font-family: $header-font;
+					font-size: 18px;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
