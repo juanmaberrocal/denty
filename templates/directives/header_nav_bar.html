@@ -17,10 +17,10 @@
           <!-- social (invisible mobile) -->
           <div ng-if="$root.configs.has_social" id="nav-social-buttons" ng-class="{ 'col-md-6': $root.configs.can_book_online, 'col-lg-8': $root.configs.can_book_online, 'col-md-12': !$root.configs.can_book_online, 'col-lg-12': !$root.configs.can_book_online }" class="hidden-xs hidden-sm">
             <ul class="nav navbar-nav pull-right">
-              <li ng-if="$root.configs.socials.facebook"><a ng-href="{{$root.configs.socials.facebook | trustUrl}}"><i class="fa fa-2x fa-facebook"></i></a></li>
-              <li ng-if="$root.configs.socials.twitter"><a ng-href="{{$root.configs.socials.twitter | trustUrl}}"><i class="fa fa-2x fa-twitter"></i></a></li>
-              <li ng-if="$root.configs.socials.google_plus"><a ng-href="{{$root.configs.socials.google_plus | trustUrl}}"><i class="fa fa-2x fa-google-plus"></i></a></li>
-              <li ng-if="$root.configs.socials.instagram"><a ng-href="{{$root.configs.socials.instagram | trustUrl}}"><i class="fa fa-2x fa-instagram"></i></a></li>
+              <li ng-if="$root.configs.socials.facebook"><a ng-href="{{$root.configs.socials.facebook | trustUrl}}" target="_blank"><i class="fa fa-2x fa-facebook"></i></a></li>
+              <li ng-if="$root.configs.socials.twitter"><a ng-href="{{$root.configs.socials.twitter | trustUrl}}" target="_blank"><i class="fa fa-2x fa-twitter"></i></a></li>
+              <li ng-if="$root.configs.socials.google_plus"><a ng-href="{{$root.configs.socials.google_plus | trustUrl}}" target="_blank"><i class="fa fa-2x fa-google-plus"></i></a></li>
+              <li ng-if="$root.configs.socials.instagram"><a ng-href="{{$root.configs.socials.instagram | trustUrl}}" target="_blank"><i class="fa fa-2x fa-instagram"></i></a></li>
             </ul>
           </div>
 
