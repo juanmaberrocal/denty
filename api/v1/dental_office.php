@@ -9,7 +9,7 @@ $domain = $mySql->escapeString($_GET['domain']);
 // define home page model and build query
 include_once('models/office.php');
 $office = new office();
-$officeSql = $office->getWithSettings($domain); // pull home page id
+$officeSql = $office->getWithSettings($domain);
 // query office and set as results
 $result = $mySql->query($officeSql);
 $result = $result[0]; // dental office is first/only row

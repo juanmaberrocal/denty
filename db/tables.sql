@@ -8,6 +8,7 @@ CREATE TABLE offices (
 	contact_phone VARCHAR(255),
 	contact_email VARCHAR(255),
 	contact_address TEXT,
+	google_api VARCHAR(255),
 	created_at DATETIME NOT NULL DEFAULT NOW(),
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id)

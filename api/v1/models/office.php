@@ -3,24 +3,26 @@ class office {
 	private static $table_name = 'offices';
 
 	private static $columns_all = array(
-			'id', 
-			'name', 
-			'domain', 
-			'logo_source', 
-			'contact_phone', 
-			'contact_email', 
-			'contact_address', 
+			'id',
+			'name',
+			'domain',
+			'logo_source',
+			'contact_phone',
+			'contact_email',
+			'contact_address',
+			'google_api',
 			'created_at', 
 			'updated_at'
 		);
 
 	public static $columns_public = array(
-			'name', 
-			'domain', 
-			'logo_source', 
-			'contact_phone', 
-			'contact_email', 
-			'contact_address'
+			'name',
+			'domain',
+			'logo_source',
+			'contact_phone',
+			'contact_email',
+			'contact_address',
+			'google_api'
 		);
 
 	/*===============================
