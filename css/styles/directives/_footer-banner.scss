@@ -1,5 +1,21 @@
 footer-banner {
 	div.container {
-		margin-top: 70px;
+		margin-top: 120px;
+
+		a, a:hover,
+		address, 
+		#yelp-link, 
+		#creator-info {
+			color: $dark-text;
+			text-decoration: none;
+		}
+
+		#yelp-link {
+			text-align: center;
+		}
+
+		#creator-info {
+			text-align: right;
+		}
 	}
 }

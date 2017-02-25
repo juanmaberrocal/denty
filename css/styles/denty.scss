@@ -13,12 +13,14 @@ body {
 @media (min-width: 425px) and (max-width: 768px) {
   body {
     padding-top: 67px;
+    padding-bottom: 105px;
   }
 }
 
 @media (max-width: 425px) {
   body {
     padding-top: 122px;
+    padding-bottom: 105px;
   }
 }
 

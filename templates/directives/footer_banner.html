@@ -2,31 +2,39 @@
   <div class="row">
     <div ng-if="$root.configs.has_address" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <div class="row">
-        <div class="col-xs-12">
-          <a href="#">Sitemap</a>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <a class="font-sm" ui-sref="denty.sitemap">Sitemap</a>
         </div>
       </div>
       <br/>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <address>
             {{$root.configs.contact_address}}<br>
-            {{$root.configs.contact_phone}}
+            <a ng-if="$root.configs.contact_phone" ng-href="tel:{{$root.configs.contact_phone}}">{{$root.configs.contact_phone}}</a>
             {{($root.configs.contact_phone && $root.configs.contact_email) ? ' | ' : ''}}
-            {{$root.configs.contact_email}}
+            <a ng-if="$root.configs.contact_email" ng-href="mailto:{{$root.configs.contact_email}}">{{$root.configs.contact_email}}</a>
           </address>
         </div>
       </div>
     </div>
     <div ng-class="{ 'col-xs-12': true, 'col-sm-12': !$root.configs.has_address, 'col-md-6': !$root.configs.has_address, 'col-lg-12': !$root.configs.has_address, 'col-sm-6': $root.configs.has_address, 'col-md-6': $root.configs.has_address, 'col-lg-6': $root.configs.has_address }">
       <div ng-if="!$root.configs.has_address" class="row">
-        <div class="col-xs-12">
-          <a href="#">Sitemap</a>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <a class="font-sm" ui-sref="denty.sitemap">Sitemap</a>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          Powered by Denty
+        <div id="yelp-link" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <a ng-if="$root.configs.socials.yelp" ng-href="{{$root.configs.socials.yelp | trustUrl}}" target="_blank">
+            <img class="img-responsive" src="img/Yelp_trademark_RGB_outline_cropped.png">
+            <span class="hidden-xs hidden-sm">Review us on Yelp!</span>
+          </a>
+        </div>
+        <div id="creator-info" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <span class="font-sm">Designed by</span><br/>
+          <a href="http://www.juanmaberrocal.com" target="_blank">Juan Manuel Berrocal</a>
+          <!-- Powered by Denty -->
         </div>
       </div>
     </div>
