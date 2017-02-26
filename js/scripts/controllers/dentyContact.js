@@ -28,6 +28,12 @@ angular.module("dentyApp")
 			function onContactLoad(response){
 				dentyDebugger.console(response, onContactLoad, "info");
 
+				// check if hours have to be displayed and hours are configured
+				if (response.data.show_hours && $rootScope.configs.contact_hours){
+					// split hours into array
+					response.data.contact_hours = $rootScope.configs.contact_hours.split(" || ");
+				}
+
 				// check map has to be displayed and api is available
 				if (response.data.show_map && $rootScope.configs.google_api){
 					// build google map url

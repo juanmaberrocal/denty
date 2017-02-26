@@ -10,6 +10,7 @@ class office {
 			'contact_phone',
 			'contact_email',
 			'contact_address',
+			'contact_hours',
 			'google_api',
 			'created_at', 
 			'updated_at'
@@ -22,6 +23,7 @@ class office {
 			'contact_phone',
 			'contact_email',
 			'contact_address',
+			'contact_hours',
 			'google_api'
 		);
 
