@@ -1,0 +1,28 @@
+//=================
+// import variables
+//=================
+@import 'variables';
+
+div#dentyFinancing {
+
+	/* financing container */
+	div#financingBody {
+		
+		div#payment-methods {
+			div {
+				text-align: center;
+				// min-height: 200px;
+
+				img {
+					margin: auto;
+					margin-bottom: 30px;
+				}
+			}
+		}
+
+	}
+}
+
+
+
+

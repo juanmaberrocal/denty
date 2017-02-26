@@ -1,0 +1,39 @@
+<div id="dentyFinancing" ng-show="financingLoaded">
+	<!-- header -->
+	<page-header ng-if="has_header" id="financingHeader" title="{{$root.configs.financing_override || 'Financing'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+
+	<!-- title & description -->
+	<page-title-description ng-if="(has_title || has_description)" id="financingTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>
+
+	<!-- body -->
+	<div id="financingBody" class="container page-body">
+
+		<h3>Payment Methods Accepted</h3>
+		<div class="row" id="payment-methods">
+			<div ng-if="accepts_amex" class="col-xs-12 col-sm-4 col-md-2 col-lg-2" id="method-amex">
+				<img class="img-responsive" src="img/American_Express_logo.png" alt="Amex"> 
+			</div>
+			<div ng-if="accepts_discover" class="col-xs-12 col-sm-4 col-md-2 col-lg-2" id="method-discover">
+				<img class="img-responsive" src="img/Discover_Card_logo.png" alt="Discover"> 
+			</div>
+			<div ng-if="accepts_master_card" class="col-xs-12 col-sm-4 col-md-2 col-lg-2" id="method-mastercard">
+				<img class="img-responsive" src="img/MasterCard_Logo.png" alt="Master Card"> 
+			</div>
+			<div ng-if="accepts_visa" class="col-xs-12 col-sm-4 col-md-2 col-lg-2" id="method-visa">
+				<img class="img-responsive" src="img/Visa_Logo.png" alt="Visa"> 
+			</div>
+			<div ng-if="accepts_care_credit" class="col-xs-12 col-sm-4 col-md-2 col-lg-2" id="method-carecredit">
+				<img class="img-responsive" src="img/CareCredit-Logo.png" alt="Care Credit"> 
+			</div>
+		</div>
+
+		<!-- policies -->
+		<div ng-if="finance_policies.length > 0" id="finance-policies">
+			<div ng-repeat="policy in finance_policies" class="row">
+				<h5>{{policy.title}}</h5>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-bind-html="policy.description | trustHtml"></div>
+			</div>
+		</div>
+
+	</div>
+</div>
