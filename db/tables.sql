@@ -301,6 +301,7 @@ CREATE TABLE offer_pages (
 	has_header BOOLEAN,
 	image_name VARCHAR(255),
 	image_source VARCHAR(255),
+	-- image_data BLOB,
 	has_title BOOLEAN,
 	title VARCHAR(255),
 	has_description BOOLEAN,
@@ -339,6 +340,7 @@ CREATE TABLE contact_pages (
 	has_header BOOLEAN,
 	image_name VARCHAR(255),
 	image_source VARCHAR(255),
+	-- image_data BLOB,
 	has_title BOOLEAN,
 	title VARCHAR(255),
 	has_description BOOLEAN,
@@ -352,4 +354,44 @@ CREATE TABLE contact_pages (
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id)
+)
+
+/*------------
+Financing View
+------------*/
+CREATE TABLE financing_pages (
+	id INT NOT NULL AUTO_INCREMENT,
+	office_id INT(11) NOT NULL,
+	has_header BOOLEAN,
+	image_name VARCHAR(255),
+	image_source VARCHAR(255),
+	-- image_data BLOB,
+	has_title BOOLEAN,
+	title VARCHAR(255),
+	has_description BOOLEAN,
+	description TEXT,
+	accepts_amex BOOLEAN,
+	accepts_discover BOOLEAN,
+	accepts_master_card BOOLEAN,
+	accepts_visa BOOLEAN,
+	accepts_care_credit BOOLEAN,
+	policy_limit INT(11) DEFAULT 4,
+	created_at DATETIME NOT NULL DEFAULT NOW(),
+	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+	PRIMARY KEY (id),
+	FOREIGN KEY (office_id) REFERENCES offices(id)
+)
+
+CREATE TABLE finance_policies (
+	id INT NOT NULL AUTO_INCREMENT,
+	office_id INT(11) NOT NULL,
+	financing_page_id INT(11) NOT NULL,
+	title VARCHAR(255),
+	description TEXT,
+	active BOOLEAN DEFAULT 1,
+	created_at DATETIME NOT NULL DEFAULT NOW(),
+	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+	PRIMARY KEY (id),
+	FOREIGN KEY (office_id) REFERENCES offices(id),
+	FOREIGN KEY (financing_page_id) REFERENCES financing_pages(id)
 )
