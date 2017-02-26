@@ -40,7 +40,4 @@ class jsonResponse {
 		header("HTTP/1.1 ".$code." ".$text);
 	}
 }
-
-// return responder instance
-return new jsonResponse();
 ?>

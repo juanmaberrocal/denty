@@ -1,6 +1,7 @@
 <?php
 // json responder
-$jsonResponse = include_once('helpers/json_response.php');
+include_once('helpers/json_response.php');
+$jsonResponse = new jsonResponse();
 
 // sql connection
 include_once('helpers/mysql_connection.php');
