@@ -3,7 +3,8 @@
 $jsonResponse = include_once('helpers/json_response.php');
 
 // sql connection
-$mySql = include_once('helpers/mysql_connection.php');
+include_once('helpers/mysql_connection.php');
+$mySql = new mySqlConnection();
 
 switch ($_SERVER["REQUEST_METHOD"]){
 	case 'POST':
@@ -27,7 +28,8 @@ switch ($_SERVER["REQUEST_METHOD"]){
 		// if appointment successfully saved send out email notifications
 		if ($result){
 			// mailer (requires $domain to be defined)
-			$mailer = include_once('helpers/appointment_mailer.php');
+			include_once('helpers/appointment_mailer.php');
+			$mailer = new appointmentMailer($domain);
 
 			// Format to human readable variables
 			$prettify_name = ucwords($name);

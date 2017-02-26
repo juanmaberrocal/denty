@@ -3,7 +3,10 @@
 $jsonResponse = include_once('helpers/json_response.php');
 
 // sql connection
-$mySql = include_once('helpers/mysql_connection.php');
+include_once('helpers/mysql_connection.php');
+$mySql = new mySqlConnection();
+
+// set domain param
 $domain = $mySql->escapeString($_GET['domain']);
 
 // define offer page model and build query

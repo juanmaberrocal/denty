@@ -11,12 +11,9 @@ class appointmentMailer {
 	var $office_data;
 
 	// on new mailer, query domain office configurations
-	function __construct($domain, $mySql=NULL){
-		// check if there is a live connection
-		if (!$mySql){
-			// sql connection
-			$mySql = include_once('mysql_connection.php');
-		}
+	function __construct($domain){
+		include_once('mysql_connection.php');
+		$mySql = new mySqlConnection();
 
 		$domain = $mySql->escapeString($domain);
 		$emailSql = "SELECT name, domain, contact_email, contact_phone, contact_address FROM offices WHERE domain = '$domain' LIMIT 1";
@@ -82,7 +79,4 @@ class appointmentMailer {
 		return $headers;
 	}
 }
-
-// return responder instance
-return new appointmentMailer($domain, $mySql);
 ?>

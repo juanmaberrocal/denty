@@ -148,7 +148,4 @@ class mySqlConnection {
     return $row;
 	}
 }
-
-// return built connection
-return new mySqlConnection();
 ?>
