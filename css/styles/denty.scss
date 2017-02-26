@@ -24,6 +24,12 @@ body {
   }
 }
 
+/* bootstrap overrides */
+/* remove border radius */
+.btn, .img-thumbnail {
+  border-radius: 0;
+}
+
 //=================
 // import variables
 //=================
