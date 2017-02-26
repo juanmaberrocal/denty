@@ -22,7 +22,7 @@ $result = $result[0]; // dental office is first/only row
 if (!$result){
 	// return failure if no record was returned
 	$jsonResponse->errorResponse(
-		array('error' => $officeSql),
+		array('error' => 'No office configured'),
 		404
 	);
 }
