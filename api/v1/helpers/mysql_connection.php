@@ -5,12 +5,8 @@ class mySqlConnection {
 
 	// 
 	function __construct(){
-		// DB configuration
-		// TODO: use getenv();
-		$servername = "localhost";
-		$username = "root";
-		$password = "quagmire1";
-		$dbname = "denty_dev";
+		// load db configs
+		include_once(dirname(__FILE__).'/../configs/db_configs.php');
 
 		// build connection
 		$this->conn = new mysqli($servername, $username, $password, $dbname);
