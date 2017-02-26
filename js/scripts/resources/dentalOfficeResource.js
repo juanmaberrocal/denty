@@ -14,7 +14,8 @@ angular.module("dentyApp")
 					loadGallery: loadGalleryPage,
 					loadOffers: loadOffersPage,
 					//
-					loadContact: loadContactPage
+					loadContact: loadContactPage,
+					loadFinancing: loadFinancingPage
 				};
 
 			// return factory
@@ -224,6 +225,42 @@ angular.module("dentyApp")
 								// if no error callback is defined
 								// display errors in console
 								dentyDebugger.console(data, loadContactPage, "error");
+							}
+						}
+					);
+			}
+
+			/*
+			@description: load "financing" page data
+			@office: domain of office being displayed
+			*/
+			function loadFinancingPage(office, successCallback, errorCallback){
+				// prevent malicious queries if current office does not have a financing page configured
+				if (!$rootScope.configs.has_financing){
+					dentyDebugger.console(office, loadFinancingPage, "error");
+				}
+
+				return $http
+					.get("/api/v1/financing_page.php",
+						{ params: {domain: office} }
+					)
+					.then(
+						function(data){ // success handler
+							if (successCallback){
+								successCallback(data);
+							} else {
+								// if no success callback is defined
+								// display success in console
+								dentyDebugger.console(data, loadFinancingPage, "info");
+							}
+						},
+						function(data){ // error handler
+							if (errorCallback){
+								errorCallback(data);
+							} else {
+								// if no error callback is defined
+								// display errors in console
+								dentyDebugger.console(data, loadFinancingPage, "error");
 							}
 						}
 					);

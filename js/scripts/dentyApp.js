@@ -59,10 +59,16 @@ angular.module("dentyApp", [
 	  	  	templateUrl: "templates/_rewards.html",
 	  	  	controller: "dentyRewards"
 	  	  })
+	  	  //
 			  .state("denty.contact", { // contact
 					url: "/contact",
 					templateUrl: "templates/_contact.html",
 					controller: "dentyContact"
+			  })
+			  .state("denty.financing", { // financing
+			  	url: "/financing",
+			  	templateUrl: "templates/_financing.html",
+			  	controller: "dentyFinancing"
 			  });
 
 			// redirect home for wrong urls
