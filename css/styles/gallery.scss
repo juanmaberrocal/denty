@@ -7,9 +7,19 @@ div#dentyGallery {
 
 	/* images container */
 	div#galleryBody {
-		img.img-thumbnail {
-			margin-bottom: 15px;
+
+		div.thumbnail {
+			div.caption {
+				h4 {
+					text-align: center;
+					margin-bottom: 0;
+				}
+			}
 		}
+
+		// img.img-thumbnail {
+			// margin-bottom: 15px;
+		// }
 	}
 }
 

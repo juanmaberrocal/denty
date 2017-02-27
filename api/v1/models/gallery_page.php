@@ -9,22 +9,24 @@ class galleryPage {
 			'image_name', 
 			'image_source', 
 			'has_title', 
-			'title', 
-			'has_description', 
-			'description', 
+			'title',
+			'has_description',
+			'description',
+			'display_captions',
 			'image_limit', 
 			'created_at', 
 			'updated_at'
 		);
 
 	public static $columns_public = array(
-			'has_header', 
-			'image_name', 
-			'image_source', 
-			'has_title', 
-			'title', 
-			'has_description', 
-			'description', 
+			'has_header',
+			'image_name',
+			'image_source',
+			'has_title',
+			'title',
+			'has_description',
+			'description',
+			'display_captions',
 			'image_limit'
 		);
 

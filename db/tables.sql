@@ -310,6 +310,7 @@ CREATE TABLE gallery_pages (
 	title VARCHAR(255),
 	has_description BOOLEAN,
 	description TEXT,
+	display_captions BOOLEAN,
 	image_limit INT(11) DEFAULT 12,
 	created_at DATETIME NOT NULL DEFAULT NOW(),
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
