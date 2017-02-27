@@ -9,7 +9,7 @@ class service {
 			'has_image',
 			'image_name', 
 			'image_source',
-			'title',
+			'header',
 			'description',
 			'active', 
 			'created_at', 
@@ -20,7 +20,7 @@ class service {
 			'has_image',
 			'image_name', 
 			'image_source',
-			'title',
+			'header',
 			'description'
 		);
 
@@ -68,7 +68,7 @@ class service {
 		// find through service page
 		// order by descending ids (newest first)
 		// limit results
-		return "SELECT ".$select_string." FROM ".self::$table_name." INNER JOIN service_pages ON ".self::$table_name.".services_page_id = service_pages.id WHERE ".self::$table_name.".active=1 AND service_pages.id='".$services_page_id."' ORDER BY ".self::$table_name.".id DESC LIMIT ".$limit;
+		return "SELECT ".$select_string." FROM ".self::$table_name." INNER JOIN services_pages ON ".self::$table_name.".services_page_id = services_pages.id WHERE ".self::$table_name.".active=1 AND services_pages.id='".$services_page_id."' ORDER BY ".self::$table_name.".id DESC LIMIT ".$limit;
 	}
 
 	// 
