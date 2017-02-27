@@ -11,6 +11,7 @@ angular.module("dentyApp")
 					loadHome: loadHomePage,
 					// 
 					loadAbout: loadAboutPage,
+					loadServices: loadServicesPage,
 					loadGallery: loadGalleryPage,
 					loadOffers: loadOffersPage,
 					//
@@ -117,6 +118,42 @@ angular.module("dentyApp")
 								// if no error callback is defined
 								// display errors in console
 								dentyDebugger.console(data, loadAboutPage, "error");
+							}
+						}
+					);
+			}
+
+			/*
+			@description: load "services" page data
+			@office: domain of office being displayed
+			*/
+			function loadServicesPage(office, successCallback, errorCallback){
+				// prevent malicious queries if current office does not have a services page configured
+				if (!$rootScope.configs.has_services){
+					dentyDebugger.console(office, loadServicesPage, "error");
+				}
+
+				return $http
+					.get("/api/v1/services_page.php",
+						{ params: {domain: office} }
+					)
+					.then(
+						function(data){ // success handler
+							if (successCallback){
+								successCallback(data);
+							} else {
+								// if no success callback is defined
+								// display success in console
+								dentyDebugger.console(data, loadServicesPage, "info");
+							}
+						},
+						function(data){ // error handler
+							if (errorCallback){
+								errorCallback(data);
+							} else {
+								// if no error callback is defined
+								// display errors in console
+								dentyDebugger.console(data, loadServicesPage, "error");
 							}
 						}
 					);

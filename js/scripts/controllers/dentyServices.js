@@ -17,22 +17,22 @@ angular.module("dentyApp")
 				// display loader until data is gathered
 				$rootScope.loaderBodyDisplay = true;
 				$rootScope.errorBodyDisplay = false;
-				$scope.homeLoaded = false;
+				$scope.servicesLoaded = false;
 
-				// load home configurations
-				dentalOffice.loadHome(office,
-					onHomeLoad, 
+				// load services configurations
+				dentalOffice.loadServices(office,
+					onServicesLoad, 
 					onLoadError);
 			};
 
-			function onHomeLoad(response){
-				dentyDebugger.console(response, onHomeLoad, "info");
+			function onServicesLoad(response){
+				dentyDebugger.console(response, onServicesLoad, "info");
 
-				// set home configurations
+				// set services configurations
 				angular.extend($scope, response.data);
 				
-				// display home page
-				$scope.homeLoaded = true;
+				// display services page
+				$scope.servicesLoaded = true;
 				$rootScope.loaderBodyDisplay = false;
 				$rootScope.errorBodyDisplay = false;
 			}
@@ -46,7 +46,7 @@ angular.module("dentyApp")
 			}
 
 			/**************************
-			initialize 'home' page load
+			initialize 'services' page load
 			**************************/
 			self.init($rootScope.configs.domain);
 		}
