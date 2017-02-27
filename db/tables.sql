@@ -255,6 +255,46 @@ CREATE TABLE abouts (
 	FOREIGN KEY (about_page_id) REFERENCES about_pages(id)
 )
 
+/*-----------
+Services View
+-----------*/
+CREATE TABLE services_pages (
+	id INT NOT NULL AUTO_INCREMENT,
+	office_id INT(11) NOT NULL,
+	has_header BOOLEAN,
+	image_name VARCHAR(255),
+	image_source VARCHAR(255),
+	-- image_data BLOB,
+	has_title BOOLEAN,
+	title VARCHAR(255),
+	has_description BOOLEAN,
+	description TEXT,
+	services_limit INT(11) DEFAULT 6,
+	created_at DATETIME NOT NULL DEFAULT NOW(),
+	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+	PRIMARY KEY (id),
+	FOREIGN KEY (office_id) REFERENCES offices(id)
+)
+
+-- Services
+CREATE TABLE services (
+	id INT NOT NULL AUTO_INCREMENT,
+	office_id INT(11) NOT NULL,
+	services_page_id INT(11) NOT NULL,
+	has_image BOOLEAN,
+	image_name VARCHAR(255),
+	image_source VARCHAR(255),
+	-- image_data BLOB,
+	header VARCHAR(255),
+	description VARCHAR(255),
+	active BOOLEAN DEFAULT 1,
+	created_at DATETIME NOT NULL DEFAULT NOW(),
+	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+	PRIMARY KEY (id),
+	FOREIGN KEY (office_id) REFERENCES offices(id),
+	FOREIGN KEY (services_page_id) REFERENCES services_pages(id)
+)
+
 /*----------
 Gallery View
 ----------*/
@@ -314,6 +354,7 @@ CREATE TABLE offer_pages (
 	FOREIGN KEY (office_id) REFERENCES offices(id)
 )
 
+-- Offers
 CREATE TABLE offers (
 	id INT NOT NULL AUTO_INCREMENT,
 	office_id INT(11) NOT NULL,
@@ -383,6 +424,7 @@ CREATE TABLE financing_pages (
 	FOREIGN KEY (office_id) REFERENCES offices(id)
 )
 
+-- Policies
 CREATE TABLE finance_policies (
 	id INT NOT NULL AUTO_INCREMENT,
 	office_id INT(11) NOT NULL,
