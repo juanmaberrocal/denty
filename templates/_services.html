@@ -1,16 +1,47 @@
 <div id="dentyServices" ng-show="servicesLoaded">
 	<!-- header -->
-	<page-header ng-if="has_header" id="servicesHeader" title="{{$root.configs.services_override || 'About'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+	<page-header ng-if="has_header" id="servicesHeader" title="{{$root.configs.services_override || 'Services'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
 
 	<!-- title & description -->
 	<page-title-description ng-if="(has_title || has_description)" id="servicesTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>
 
 	<!-- body -->
-	<div ng-if="services.length > 0" id="servicesBody" class="container page-body">
+	<div ng-if="services.length > 0" id="servicesBody" class="container-fluid page-body">
 				
 		<!-- services -->
-		
+		<div class="row">
+			<ul class="nav nav-tabs" role="tablist">
+				<li ng-repeat="service in services" ng-class="{active: $index == 0}">
+					<a  role="tab" data-target="#{{service.id}}" data-toggle="tab" aria-controls="">{{service.header}}</a>
+				</li>
+			</ul>
+			
+			<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+				
+				<div class="tab-content">
+					<div ng-repeat="service in services" ng-class="{active: $index == 0 }" class="tab-pane" id="{{service.id}}">
+						
+						<div class="row">
+							<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+								
+								<div class="row">
+									<div ng-class="{'col-xs-12': true, 'col-sm-12': !service.has_image, 'col-md-12': !service.has_image, 'col-lg-12': !service.has_image, 'col-sm-8': service.has_image, 'col-md-8': service.has_image, 'col-lg-10': service.has_image}">
+										<div class="row">
+											<div ng-bind-html="service.description | trustHtml" class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1"></div>
+										</div>
+									</div>
+									<div ng-if="service.has_image" ng-class="{'col-xs-12': true, 'col-sm-4': service.has_image, 'col-md-4': service.has_image, 'col-lg-2': service.has_image}">
+										<img class="img-responsive" ng-src="{{ (service.image_source | trustResource) || 'img/' + $root.configs.domain + '/services_' + $index + '.jpeg' }}" alt="{{service.image_name}}">
+									</div>
+								</div>
 
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
 		</div>
 
 	</div>

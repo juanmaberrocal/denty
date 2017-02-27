@@ -26,7 +26,7 @@ body {
 
 /* bootstrap overrides */
 /* remove border radius */
-.btn, .img-thumbnail {
+.nav-tabs>li>a, .btn, .img-thumbnail {
   border-radius: 0;
 }
 

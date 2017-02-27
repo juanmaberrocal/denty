@@ -1,0 +1,48 @@
+//=================
+// import variables
+//=================
+@import 'variables';
+
+div#dentyServices {
+
+	/* header */
+	page-header#servicesHeader {
+		div.page-header {
+			margin-bottom: 0;
+		}
+	}
+
+	/* services container */
+	div#servicesBody {
+		ul.nav.nav-tabs {
+			text-align: center;
+			background-color: $light-background;
+
+			li {
+				display: inline-block;
+				float: none;
+
+				a {
+					color: black;
+
+					&:hover {
+						color: $primary-color;
+						background-color: $light-background;
+						// border-color: $light-background;
+						cursor: pointer;
+					}
+				}
+
+				&.active {
+					a {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+

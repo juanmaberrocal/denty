@@ -28,6 +28,11 @@ angular.module("dentyApp")
 			function onServicesLoad(response){
 				dentyDebugger.console(response, onServicesLoad, "info");
 
+				// build id for each service tab
+				for (var i=0; i<response.data.services.length; i++){
+					response.data.services[i].id = response.data.services[i].header.replace(/\s/g, "-").toLowerCase();
+				}
+
 				// set services configurations
 				angular.extend($scope, response.data);
 				
