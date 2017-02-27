@@ -241,6 +241,7 @@ CREATE TABLE abouts (
 	id INT NOT NULL AUTO_INCREMENT,
 	office_id INT(11) NOT NULL,
 	about_page_id INT(11) NOT NULL,
+	has_image BOOLEAN,
 	image_name VARCHAR(255),
 	image_source VARCHAR(255),
 	-- image_data BLOB,

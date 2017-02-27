@@ -5,7 +5,8 @@ class about {
 	private static $columns_all = array(
 			'id', 
 			'office_id', 
-			'about_page_id', 
+			'about_page_id',
+			'has_image',
 			'image_name', 
 			'image_source',
 			'title',
@@ -16,6 +17,7 @@ class about {
 		);
 
 	public static $columns_public = array(
+			'has_image',
 			'image_name', 
 			'image_source',
 			'title',
