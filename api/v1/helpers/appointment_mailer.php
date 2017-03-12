@@ -1,7 +1,8 @@
 <?php
 class appointmentMailer {
 	private static $default_subject = array(
-		'appointment_confirm' => 'Appointment Confirmation',
+		'appointment_confirmation' => 'Appointment Confirmation',
+		'appointment_request' => 'Appointment Request',
 		'appointment_reminder' => 'Appointment Reminder',
 		'appointment_cancelled' => 'Appointment Cancelled'
 	);
@@ -34,7 +35,14 @@ class appointmentMailer {
 	mail senders
 	==========*/
 	function sendAppointmentConfirmation($to, $message){
-		$subject = self::$default_subject['appointment_confirm'];
+		$subject = self::$default_subject['appointment_confirmation'];
+		$headers = $this->buildHeader();
+
+		return mail($to, $subject, $message, $headers);
+	}
+
+	function sendAppointmentRequest($to, $message){
+		$subject = self::$default_subject['appointment_request'];
 		$headers = $this->buildHeader();
 
 		return mail($to, $subject, $message, $headers);
@@ -45,7 +53,31 @@ class appointmentMailer {
 	==============*/
 	function buildConfirmationMessage($name, $date, $time, $treatment){
 		// get confirmation message template
-		$message_template = include('mail_templates/appointment_confirm.php');
+		$message_template = include('mail_templates/appointment_confirmation.php');
+
+		// replacements
+		$search = array(
+			# "to" info
+			'$to', '$date', '$time', '$treatment',
+			# "from" info
+			'$from', '$email', '$phone', '$address');
+		$replace = array(
+			# "to" data
+			$name, $date, $time, $treatment,
+			# "from" data
+			$this->office_data['name'], $this->office_data['contact_email'], $this->office_data['contact_phone'], $this->office_data['contact_address']
+		);
+
+		// replace variables
+		$message = str_replace($search, $replace, $message_template);
+
+		// return wrapped message with footer
+		return wordwrap($message.self::$message_footer);
+	}
+
+	function buildRequestMessage($name, $date, $time, $treatment){
+		// get request message template
+		$message_template = include('mail_templates/appointment_request.php');
 
 		// replacements
 		$search = array(

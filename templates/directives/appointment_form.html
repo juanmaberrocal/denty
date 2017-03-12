@@ -8,6 +8,8 @@
 
 <!-- form -->
 <form novalidate role="form" class="form-inline" id="bookingForm" name="form" ng-submit="submit()">
+  <input type="hidden" id="directConfirm" name="directConfirm" readonly ng-model="model.directConfirm">
+
   <!-- error message -->
   <div class="bg-danger" ng-show="!!errorMsg">
     <p class="text-danger">{{errorMsg}}</p>

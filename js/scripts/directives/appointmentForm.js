@@ -7,12 +7,18 @@ angular.module("dentyApp")
 			return {
 				restrict: "E",
 				templateUrl: "/templates/directives/appointment_form.html",
+				scope: {
+					direct_confirm: "@directConfirm"
+				},
 				link: function($scope, element, attrs){
 					/*=================================
 					define form model constructors here
 					=================================*/
 					function initializeFormModel(){
 						return {
+							// message flag
+							directConfirm: $scope.direct_confirm,
+							// form fields
 							name: null,
 							date: null,
 							time: null,

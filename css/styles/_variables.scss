@@ -41,7 +41,7 @@ $section-bg: url("/img/sectionBG.jpg");
 }
 
 @mixin center-position-div {
-	position: relative;
+	position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

@@ -23,6 +23,7 @@ CREATE TABLE office_settings (
 	id INT NOT NULL AUTO_INCREMENT,
 	office_id INT(11) NOT NULL,
 	can_book_online BOOLEAN,
+	direct_confirmation BOOLEAN,
 	has_header BOOLEAN,
 	has_footer BOOLEAN,
 	has_social BOOLEAN,

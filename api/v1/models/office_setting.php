@@ -5,7 +5,8 @@ class officeSetting {
 	private static $columns_all = array(
 			'id', 
 			'office_id', 
-			'can_book_online', 
+			'can_book_online',
+			'direct_confirmation',
 			'has_header', 
 			'has_footer', 
 			'has_social', 
@@ -35,6 +36,7 @@ class officeSetting {
 
 	public static $columns_public = array(
 			'can_book_online', 
+			'direct_confirmation',
 			'has_header', 
 			'has_footer', 
 			'has_social', 

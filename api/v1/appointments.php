@@ -13,6 +13,10 @@ switch ($_SERVER["REQUEST_METHOD"]){
 		$json = file_get_contents('php://input');
 		$obj = json_decode($json);
 
+		// Message template flag
+		$directConfirmation = $obj->directConfirm;
+		$directConfirmation = $directConfirmation === "true" ? true : false;
+
 		// SQL Query
 		$domain = $mySql->escapeString($obj->domain);
 		$name = $mySql->escapeString($obj->name);
@@ -39,12 +43,16 @@ switch ($_SERVER["REQUEST_METHOD"]){
 			$prettify_treatment = ucfirst($treatment);
 
 			// build message with replacements
-			$message = $mailer->buildConfirmationMessage($prettify_name, $prettify_date, $prettify_time, $prettify_treatment);
+			if ($directConfirmation){
+				$message = $mailer->buildConfirmationMessage($prettify_name, $prettify_date, $prettify_time, $prettify_treatment);
+			} else {
+				$message = $mailer->buildRequestMessage($prettify_name, $prettify_date, $prettify_time, $prettify_treatment);
+			}
 
 			// send email
 			if ($mailer->sendAppointmentConfirmation($email, $message)){
 				// store copy of successful message
-				$emailQuery = "INSERT INTO message_logs (office_id, messageable_id, messageable_type, message_type, message_status, message_text, to_email) VALUES ((SELECT id FROM offices WHERE domain='$domain' LIMIT 1), '$result[id]', 'appointments', 'Appointment Confirmation', 'Success', '$message', '$email')";
+				$emailQuery = "INSERT INTO message_logs (office_id, messageable_id, messageable_type, message_type, message_status, message_text, to_email) VALUES ((SELECT id FROM offices WHERE domain='$domain' LIMIT 1), '$result[id]', 'appointments', 'Appointment Booking', 'Success', '$message', '$email')";
 				$mySql->insert($emailQuery);
 
 				// return json object of message sent
@@ -57,7 +65,7 @@ switch ($_SERVER["REQUEST_METHOD"]){
 				);
 			} else {
 				// store copy of failed message
-				$emailQuery = "INSERT INTO message_logs (office_id, messageable_id, messageable_type, message_type, message_status, message_text, to_email) VALUES ((SELECT id FROM offices WHERE domain='$domain' LIMIT 1), '$result[id]', 'appointments','Appointment Confirmation', 'Fail', '$message', '$email')";
+				$emailQuery = "INSERT INTO message_logs (office_id, messageable_id, messageable_type, message_type, message_status, message_text, to_email) VALUES ((SELECT id FROM offices WHERE domain='$domain' LIMIT 1), '$result[id]', 'appointments','Appointment Booking', 'Fail', '$message', '$email')";
 				$mySql->insert($emailQuery);
 
 				// return warning (failure) if no message was sent
