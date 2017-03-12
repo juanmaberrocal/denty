@@ -30,7 +30,7 @@ angular.module("dentyApp")
 
 				// set home configurations
 				angular.extend($scope, response.data);
-				
+
 				// display home page
 				$scope.homeLoaded = true;
 				$rootScope.loaderBodyDisplay = false;
@@ -44,6 +44,16 @@ angular.module("dentyApp")
 				$rootScope.loaderBodyDisplay = false;
 				$rootScope.errorBodyDisplay = true;
 			}
+
+			/*==========================
+			define scope functions here:
+			==========================*/
+			$scope.initializeCarousel = function(){
+					$("#homeCarousel").carousel({
+						pause: null,
+						keyboard: false
+					});
+			};
 
 			/**************************
 			initialize 'home' page load

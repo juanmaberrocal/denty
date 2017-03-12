@@ -1,13 +1,13 @@
 <div id="dentyHome" ng-show="homeLoaded">
 	<!-- jumbo carousel -->
-	<div ng-if="has_carousel && carousel.length > 0" id="homeCarousel" class="carousel slide" data-ride="carousel">
+	<div ng-if="has_carousel && carousel.length > 0" id="homeCarousel" class="carousel slide" ng-init="initializeCarousel()">
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner" role="listbox">
 
 	  	<!-- slide -->
 	    <div ng-repeat="slide in carousel" ng-class="{active: $index==0}" class="item">
 	      <img ng-src="{{ (slide.image_source | trustResource) || 'img/' + $root.configs.domain + '/carousel_' + $index + '.jpeg' }}" alt="{{slide.image_name}}">
-	      <div class="carousel-caption">
+	      <div ng-if="!!slide.caption" class="carousel-caption">
 	        {{slide.caption}}
 	      </div>
 	    </div>
