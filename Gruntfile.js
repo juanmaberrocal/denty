@@ -6,13 +6,25 @@ module.exports = function(grunt){
 		=======*/
 		// compile sass files
 		sass: {
-			dist: {
+			// standard app css
+			app: {
 				files: [{
 					// compile files and place into source
 					expand: true,
 					cwd: "css/styles",
 					src: ["*.scss"],
 					dest: "css/source",
+					ext: ".css"
+				}]
+			},
+			// domain specific custom css
+			custom: {
+				files: [{
+					// compile files and place into source/custom
+					expand: true,
+					cwd: "css/styles/custom",
+					src: ["*.scss"],
+					dest: "css/source/custom",
 					ext: ".css"
 				}]
 			}
@@ -50,13 +62,27 @@ module.exports = function(grunt){
 		=========*/
 		// minify css
 		cssmin: {
-			dist: {
+			app: {
 				options: {
 					banner: "/*! DentyApp.css <%= pkg.version %> | <%= pkg.author %> | <%= pkg.license %> Licensed */"
 				},
 				files: {
 					"css/denty-app.min.css": "css/denty-app.css"
 				}
+			},
+			custom: {
+				options: {
+					// TODO: name properly
+					banner: "/*! DentyApp-Custom.css <%= pkg.version %> | <%= pkg.author %> | <%= pkg.license %> Licensed */"
+				},
+				files: [{
+					// minify custom files individually and place into root css
+					expand: true,
+					cwd: "css/source/custom",
+					src: ["*.css"],
+					dest: "css/",
+					ext: ".min.css"
+				}]
 			}
 		},
 
@@ -85,7 +111,12 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks("grunt-contrib-watch");
 
 	// compile styles and concat result into dist mini css
-	grunt.registerTask("css", ["sass", "concat:css", "cssmin"]);
+	grunt.registerTask("css", [
+		// base app css
+		"sass:app", "concat:css", "cssmin:app", 
+		// custom domain css
+		"sass:custom", "cssmin:custom"
+	]);
 
 	// compile scripts and concat result into dist mini js
 	grunt.registerTask("js", ["concat:js", "uglify"]);

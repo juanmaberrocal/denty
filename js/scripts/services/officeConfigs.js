@@ -21,7 +21,10 @@ angular.module("dentyApp")
 				$rootScope.configs = officeData;
 
 				// set title to office name
-				$window.document.title = $rootScope.configs.name + " | " + $window.document.title;
+				_privateFunctions.setDocumentTitle();
+
+				// 
+				_privateFunctions.setCustomCss();
 				
 				// display office webpage
 				$rootScope.officeLoaded = true;
@@ -39,6 +42,27 @@ angular.module("dentyApp")
 			// get domain of office visited  
 			self.getOfficeDomain = function(){
 				return $window.location.host.split(".")[0];
+			};
+
+			/*====================
+			define private methods
+			====================*/
+			var _privateFunctions = {
+				setDocumentTitle: function(){
+					$window.document.title = $rootScope.configs.name + " | " + $window.document.title;
+				},
+				setCustomCss: function(){
+					if ($rootScope.configs.custom_style){
+						// build css link
+						var cssLink = document.createElement("link");
+						cssLink.href = "css/" + $rootScope.configs.custom_style + ".min.css";
+						cssLink.rel = "stylesheet";
+
+
+						// append custom css file
+						$window.document.head.appendChild(cssLink);
+					}
+				}
 			};
 
 			/*===============================

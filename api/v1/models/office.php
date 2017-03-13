@@ -6,6 +6,7 @@ class office {
 			'id',
 			'name',
 			'domain',
+			'custom_style',
 			'logo_source',
 			'contact_phone',
 			'contact_email',
@@ -19,6 +20,7 @@ class office {
 	public static $columns_public = array(
 			'name',
 			'domain',
+			'custom_style',
 			'logo_source',
 			'contact_phone',
 			'contact_email',

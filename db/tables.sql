@@ -3,6 +3,7 @@ CREATE TABLE offices (
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(255),
 	domain VARCHAR(255),
+	custom_style VARCHAR(255),
 	logo_source VARCHAR(255),
 	-- logo_data BLOB,
 	contact_phone VARCHAR(255),
