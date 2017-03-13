@@ -1,6 +1,6 @@
 <div id="dentyGallery" ng-show="galleryLoaded">
 	<!-- header -->
-	<page-header ng-if="has_header" id="galleryHeader" title="{{$root.configs.gallery_override || 'Gallery'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+	<page-header ng-if="has_header" id="galleryHeader" title="{{$root.configs.gallery_override || 'Gallery'}}" has_image="has_image" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
 
 	<!-- title & description -->
 	<page-title-description ng-if="(has_title || has_description)" id="galleryTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>

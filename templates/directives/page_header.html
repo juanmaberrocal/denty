@@ -1,8 +1,8 @@
 <div class="container-fluid page-header">
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-			  <div class="media-left media-middle page-header-image">
-			    <img class="media-object img-responsive" ng-src="{{ (image_source | trustResource) || 'img/' + $root.configs.domain + '/' + (title | lowercase) + '_header.jpeg' }}" alt="{{image_name}}">
+			  <div ng-class="{ 'page-header-image-min-height': !has_image }" class="media-left media-middle page-header-image">
+			    <img ng-if="has_image" class="media-object img-responsive" ng-src="{{ (image_source | trustResource) || 'img/' + $root.configs.domain + '/' + (title | lowercase) + '_header.jpeg' }}" alt="{{image_name}}">
 			  </div>
 			  <div class="media-body media-middle page-header-body">
 			    <h3 class="media-heading">{{title}}</h3>

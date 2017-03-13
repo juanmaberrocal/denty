@@ -5,7 +5,8 @@ class offerPage {
 	private static $columns_all = array(
 			'id', 
 			'office_id', 
-			'has_header', 
+			'has_header',
+			'has_image',
 			'image_name', 
 			'image_source', 
 			'has_title', 
@@ -18,7 +19,8 @@ class offerPage {
 		);
 
 	public static $columns_public = array(
-			'has_header', 
+			'has_header',
+			'has_image',
 			'image_name', 
 			'image_source', 
 			'has_title', 

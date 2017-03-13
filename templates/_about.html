@@ -1,6 +1,6 @@
 <div id="dentyAbout" ng-show="aboutLoaded">
 	<!-- header -->
-	<page-header ng-if="has_header" id="aboutHeader" title="{{$root.configs.about_override || 'About'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+	<page-header ng-if="has_header" id="aboutHeader" title="{{$root.configs.about_override || 'About'}}" has_image="has_image" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
 
 	<!-- title & description -->
 	<page-title-description ng-if="(has_title || has_description)" id="aboutTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>

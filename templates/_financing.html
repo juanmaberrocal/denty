@@ -1,6 +1,6 @@
 <div id="dentyFinancing" ng-show="financingLoaded">
 	<!-- header -->
-	<page-header ng-if="has_header" id="financingHeader" title="{{$root.configs.financing_override || 'Financing'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+	<page-header ng-if="has_header" id="financingHeader" title="{{$root.configs.financing_override || 'Financing'}}" has_image="has_image" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
 
 	<!-- title & description -->
 	<page-title-description ng-if="(has_title || has_description)" id="financingTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>

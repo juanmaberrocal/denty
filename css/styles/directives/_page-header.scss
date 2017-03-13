@@ -9,6 +9,10 @@ page-header {
 		.page-header-image {
 			width: 10000px;
 
+			&.page-header-image-min-height {
+				height: 150px;
+			}
+
 			img {
 				min-height: 250px;
 				width: 100%;

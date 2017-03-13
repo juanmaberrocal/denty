@@ -1,6 +1,6 @@
 <div id="dentyOffers" ng-show="offersLoaded">
 	<!-- header -->
-	<page-header ng-if="has_header" id="offersHeader" title="{{$root.configs.offers_override || 'Offers'}}" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
+	<page-header ng-if="has_header" id="offersHeader" title="{{$root.configs.offers_override || 'Offers'}}" has_image="has_image" image_name="{{image_name}}" image_source="{{image_source}}"></page-header>
 
 	<!-- title & description -->
 	<page-title-description ng-if="(has_title || has_description)" id="offersTitleDescription" title="{{title}}" description="{{description}}"></page-title-description>

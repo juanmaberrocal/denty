@@ -8,6 +8,7 @@ angular.module("dentyApp")
 				templateUrl: "/templates/directives/page_header.html",
 				scope: {
 					title: "@",
+					has_image: "=hasImage",
 					image_name: "@imageName",
 					image_source: "@imageSource"
 				}
