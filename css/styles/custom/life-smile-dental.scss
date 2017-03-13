@@ -5,3 +5,15 @@ div#dentyHome {
 		}
 	}
 }
+
+div#dentyServices {
+	div#servicesBody {
+		div.tab-content {
+			div[ng-bind-html] {
+				ul {
+					margin-left: -20px;
+				}
+			}
+		}
+	}
+}

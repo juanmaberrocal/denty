@@ -23,7 +23,7 @@ angular.module("dentyApp")
 				// set title to office name
 				_privateFunctions.setDocumentTitle();
 
-				// 
+				// set custom domain css
 				_privateFunctions.setCustomCss();
 				
 				// display office webpage

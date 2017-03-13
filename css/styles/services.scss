@@ -28,7 +28,7 @@ div#dentyServices {
 					&:hover {
 						color: $primary-color;
 						background-color: $light-background;
-						// border-color: $light-background;
+						border-color: transparent transparent #ddd;
 						cursor: pointer;
 					}
 				}
@@ -36,6 +36,12 @@ div#dentyServices {
 				&.active {
 					a {
 						color: $primary-color;
+
+						&:hover {
+							background-color: #fff;
+							border: 1px solid #ddd;
+    					border-bottom-color: transparent;
+						}
 					}
 				}
 			}
