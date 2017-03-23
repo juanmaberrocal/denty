@@ -22,6 +22,13 @@ angular.module("dentyApp")
 			// return factory
 			return dentalOffice;
 
+			function preventPageLoad(domain, context){
+				dentyDebugger.console(domain, context, "error");
+				// display error
+				$rootScope.loaderBodyDisplay = false;
+				$rootScope.errorBodyDisplay = true;
+			}
+
 			/*===============================
 			define all factory services here:
 			===============================*/
@@ -94,7 +101,7 @@ angular.module("dentyApp")
 			function loadAboutPage(office, successCallback, errorCallback){
 				// prevent malicious queries if current office does not have a home page configured
 				if (!$rootScope.configs.has_about){
-					dentyDebugger.console(office, loadAboutPage, "error");
+					return preventPageLoad(office, loadAboutPage);
 				}
 
 				return $http
@@ -130,7 +137,7 @@ angular.module("dentyApp")
 			function loadServicesPage(office, successCallback, errorCallback){
 				// prevent malicious queries if current office does not have a services page configured
 				if (!$rootScope.configs.has_services){
-					dentyDebugger.console(office, loadServicesPage, "error");
+					return preventPageLoad(office, loadServicesPage);
 				}
 
 				return $http
@@ -166,7 +173,7 @@ angular.module("dentyApp")
 			function loadGalleryPage(office, successCallback, errorCallback){
 				// prevent malicious queries if current office does not have a gallery page configured
 				if (!$rootScope.configs.has_gallery){
-					dentyDebugger.console(office, loadGalleryPage, "error");
+					return preventPageLoad(office, loadGalleryPage);
 				}
 
 				return $http
@@ -202,7 +209,7 @@ angular.module("dentyApp")
 			function loadOffersPage(office, successCallback, errorCallback){
 				// prevent malicious queries if current office does not have a offers page configured
 				if (!$rootScope.configs.has_offers){
-					dentyDebugger.console(office, loadOffersPage, "error");
+					return preventPageLoad(office, loadOffersPage);
 				}
 
 				return $http
@@ -238,7 +245,7 @@ angular.module("dentyApp")
 			function loadContactPage(office, successCallback, errorCallback){
 				// prevent malicious queries if current office does not have a contact page configured
 				if (!$rootScope.configs.has_contact){
-					dentyDebugger.console(office, loadContactPage, "error");
+					return preventPageLoad(office, loadContactPage);
 				}
 
 				return $http
@@ -274,7 +281,7 @@ angular.module("dentyApp")
 			function loadFinancingPage(office, successCallback, errorCallback){
 				// prevent malicious queries if current office does not have a financing page configured
 				if (!$rootScope.configs.has_financing){
-					dentyDebugger.console(office, loadFinancingPage, "error");
+					return preventPageLoad(office, loadFinancing);
 				}
 
 				return $http
