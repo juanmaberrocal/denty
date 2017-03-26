@@ -37,10 +37,10 @@
 			<!-- highlight -->
 			<div ng-repeat="highlight in highlights" ng-class="{ 'col-xs-12': true, 'col-sm-12': highlights.length == 1, 'col-sm-6': highlights.length == 2, 'col-sm-4': highlights.length > 2, 'col-md-12': highlights.length == 1, 'col-md-6': highlights.length == 2, 'col-md-4': highlights.length > 2, 'col-lg-12': highlights.length == 1, 'col-lg-6': highlights.length == 2, 'col-lg-4': highlights.length > 2 }">
 				<div class="row">
-					<div class="highlight-image col-xs-4 col-sm-12 col-md-12 col-lg-12">
+					<div class="highlight-image col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<img class="img-responsive" ng-src="{{ (highlight.image_source | trustResource) || 'img/' + $root.configs.domain + '/highlight_' + $index + '.jpeg' }}" alt="{{highlight.image_name}}">
 					</div>
-					<div class="highlight-body col-xs-8 col-sm-12 col-md-12 col-lg-12">
+					<div class="highlight-body col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<h4>{{highlight.header}}</h4>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-bind-html="highlight.description | trustHtml"></div>
