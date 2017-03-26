@@ -13,7 +13,7 @@
 				<!-- offer -->
 				<div ng-repeat="offer in offers" class="media">
 					<div id="offerImage" class="media-left media-middle">
-				    <img class="media-object img-responsive" ng-src="{{ (offer.image_source | trustResource) || 'img/' + $root.configs.domain + '/offer_' + $index + '.jpeg' }}" alt="{{offer.image_name}}"> 
+				    <img class="media-object img-responsive" ng-src="{{ (offer.image_source | trustResource) || 'img/' + $root.configs.domain + '/offer_' + $index + '.jpeg' }}" alt="{{offer.image_name}}">
 				  </div>
 				  <div id="offerBody" class="media-body media-middle">
 				    <h3 class="media-heading">{{offer.header}}</h3>
@@ -24,7 +24,7 @@
 				    </div> -->
 				    <br/>
 				    <!-- <a ng-if="$root.configs.can_book_online" ui-sref="denty.offers">Book Now</a> -->
-				    <a>Print Coupon</a>
+				    <a modal-show modal-type="image" modal-title="{{offer.header}}" modal-body="{{offer.image_source}}">Print Coupon</a>
 				  </div>
 				</div>
 				
