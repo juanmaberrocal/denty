@@ -44,6 +44,19 @@ div#dentyOffers {
 					font-size: 12px;
 					color: $dark-text;
 				}
+
+				a.offer-btn {
+					color: #FFF;
+					background-color: $primary-color;
+					text-align: center;
+					padding: 10px 25px;
+					margin: 5px 0;
+
+			    &:hover {
+			    	text-decoration: none;
+			    	cursor: pointer;
+			    }
+				}
 			}
 		}
 	}
