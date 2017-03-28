@@ -198,7 +198,7 @@ CREATE TABLE home_page_promotions (
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (home_page_id) REFERENCES home_pages(id)
-)
+);
 
 -- Thumbnails
 CREATE TABLE home_page_thumbnails (
@@ -214,7 +214,7 @@ CREATE TABLE home_page_thumbnails (
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (home_page_id) REFERENCES home_pages(id)
-)
+);
 
 /*--------
 About View
@@ -237,7 +237,7 @@ CREATE TABLE about_pages (
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id)
-)
+);
 
 -- Abouts
 CREATE TABLE abouts (
@@ -256,7 +256,7 @@ CREATE TABLE abouts (
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (about_page_id) REFERENCES about_pages(id)
-)
+);
 
 /*-----------
 Services View
@@ -278,7 +278,7 @@ CREATE TABLE services_pages (
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id)
-)
+);
 
 -- Services
 CREATE TABLE services (
@@ -297,7 +297,7 @@ CREATE TABLE services (
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (services_page_id) REFERENCES services_pages(id)
-)
+);
 
 /*----------
 Gallery View
@@ -321,7 +321,7 @@ CREATE TABLE gallery_pages (
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id)
-)
+);
 
 -- Images
 CREATE TABLE gallery_images (
@@ -337,7 +337,7 @@ CREATE TABLE gallery_images (
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (gallery_page_id) REFERENCES gallery_pages(id)
-)
+);
 
 /*---------
 Offers View
@@ -359,7 +359,7 @@ CREATE TABLE offer_pages (
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id)
-)
+);
 
 -- Offers
 CREATE TABLE offers (
@@ -378,7 +378,7 @@ CREATE TABLE offers (
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (offer_page_id) REFERENCES offer_pages(id)
-)
+);
 
 /*----------
 Contact View
@@ -404,7 +404,7 @@ CREATE TABLE contact_pages (
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id)
-)
+);
 
 /*------------
 Financing View
@@ -431,7 +431,7 @@ CREATE TABLE financing_pages (
 	updated_at DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW(),
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id)
-)
+);
 
 -- Policies
 CREATE TABLE finance_policies (
@@ -446,4 +446,4 @@ CREATE TABLE finance_policies (
 	PRIMARY KEY (id),
 	FOREIGN KEY (office_id) REFERENCES offices(id),
 	FOREIGN KEY (financing_page_id) REFERENCES financing_pages(id)
-)
+);
