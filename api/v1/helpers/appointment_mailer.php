@@ -103,7 +103,10 @@ class appointmentMailer {
 	header builders
 	=============*/
 	private function buildHeader(){
-		$headers = "From: \"".$this->office_data['name']."\" <appointments@denty.com>"."\r\n".
+		// load email configs
+		include(dirname(__FILE__).'/../configs/mail_configs.php');
+
+		$headers = "From: \"".$this->office_data['name']."\" <".$from.">"."\r\n".
 			"Bcc: ".$this->office_data['contact_email']."\r\n".
 			"Reply-To: ".$this->office_data['contact_email']."\r\n".
 			"X-Mailer: PHP/".phpversion();
