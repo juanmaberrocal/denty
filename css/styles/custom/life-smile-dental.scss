@@ -44,3 +44,30 @@ div#dentyServices {
 		}
 	}
 }
+
+div#dentyGallery {
+	div#galleryBody {
+		> div.row {
+			text-align: center;
+
+			> div[ng-repeat] {
+				display: inline-block;
+				float: none;
+			}
+		}
+	}
+}
+
+div#dentyContact {
+	div#contactBody {
+		div.contact-panel {
+			border-color: $blue;
+
+			div.contact-icon {
+				i.fa {
+					color: $blue;
+				}
+			}
+		}
+	}
+}
