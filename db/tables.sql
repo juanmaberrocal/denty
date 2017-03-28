@@ -75,8 +75,8 @@ Appointments
 CREATE TABLE appointments (
 	id INT NOT NULL AUTO_INCREMENT,
 	office_id INT(11) NOT NULL,
-	messageable_id INT(11) NOT NULL,
-	messageable_type VARCHAR(255) NOT NULL,
+	-- messageable_id INT(11) NOT NULL,
+	-- messageable_type VARCHAR(255) NOT NULL,
 	name VARCHAR(255),
 	appointment_date DATE,
 	appointment_time TIME,
