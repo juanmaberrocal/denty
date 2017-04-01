@@ -51,19 +51,19 @@ class appointmentMailer {
 	/*==============
 	message builders
 	==============*/
-	function buildConfirmationMessage($name, $date, $time, $treatment){
+	function buildConfirmationMessage($name, $date, $time, $treatment, $phone, $email){
 		// get confirmation message template
 		$message_template = include('mail_templates/appointment_confirmation.php');
 
 		// replacements
 		$search = array(
 			# "to" info
-			'$to', '$date', '$time', '$treatment',
+			'$to', '$date', '$time', '$treatment', '$phone', '$email',
 			# "from" info
-			'$from', '$email', '$phone', '$address');
+			'$office_name', '$office_email', '$office_phone', '$office_address');
 		$replace = array(
 			# "to" data
-			$name, $date, $time, $treatment,
+			$name, $date, $time, $treatment, $phone, $email,
 			# "from" data
 			$this->office_data['name'], $this->office_data['contact_email'], $this->office_data['contact_phone'], $this->office_data['contact_address']
 		);
@@ -75,19 +75,19 @@ class appointmentMailer {
 		return wordwrap($message.self::$message_footer);
 	}
 
-	function buildRequestMessage($name, $date, $time, $treatment){
+	function buildRequestMessage($name, $date, $time, $treatment, $phone, $email){
 		// get request message template
 		$message_template = include('mail_templates/appointment_request.php');
 
 		// replacements
 		$search = array(
 			# "to" info
-			'$to', '$date', '$time', '$treatment',
+			'$to', '$date', '$time', '$treatment', '$phone', '$email',
 			# "from" info
-			'$from', '$email', '$phone', '$address');
+			'$office_name', '$office_email', '$office_phone', '$office_address');
 		$replace = array(
 			# "to" data
-			$name, $date, $time, $treatment,
+			$name, $date, $time, $treatment, $phone, $email,
 			# "from" data
 			$this->office_data['name'], $this->office_data['contact_email'], $this->office_data['contact_phone'], $this->office_data['contact_address']
 		);

@@ -44,9 +44,9 @@ switch ($_SERVER["REQUEST_METHOD"]){
 
 			// build message with replacements
 			if ($directConfirmation){
-				$message = $mailer->buildConfirmationMessage($prettify_name, $prettify_date, $prettify_time, $prettify_treatment);
+				$message = $mailer->buildConfirmationMessage($prettify_name, $prettify_date, $prettify_time, $prettify_treatment, $phone, $email);
 			} else {
-				$message = $mailer->buildRequestMessage($prettify_name, $prettify_date, $prettify_time, $prettify_treatment);
+				$message = $mailer->buildRequestMessage($prettify_name, $prettify_date, $prettify_time, $prettify_treatment, $phone, $email);
 			}
 
 			// send email
